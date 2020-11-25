@@ -11,7 +11,7 @@ namespace Bello.DAL.Implement
         protected IDbConnection connection;
         public BaseRepository()
         {
-            connection = new SqlConnection(@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=BelloAPIDb;Integrated Security=True");
+            connection = new SqlConnection(@"Data Source=tri\sqlexpress;Initial Catalog=BelloAPIDb;Integrated Security=True");
         }
     }
 }
