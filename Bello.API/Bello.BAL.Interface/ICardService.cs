@@ -1,0 +1,16 @@
+﻿using Bello.Domain.Response.Card;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bello.BAL.Interface
+{
+    public interface ICardService
+    {
+        Task<IEnumerable<CardView>> Gets();
+        Task<CardView> Get(int cardId);
+        Task<SaveCardRes> ChangeStatus(int cardId, int status);
+        Task<SaveCardRes> CompleteCard(int cardId);
+    }
+}

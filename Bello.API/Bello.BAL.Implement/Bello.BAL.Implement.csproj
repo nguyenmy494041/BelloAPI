@@ -1,7 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Bello.BAL.Interface\Bello.BAL.Interface.csproj" />
+	  <ProjectReference Include="..\Bello.DAL.Interface\Bello.DAL.Interface.csproj" />
+	</ItemGroup>
+
+
+
+	
 
 </Project>
