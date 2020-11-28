@@ -1,4 +1,5 @@
 ﻿using Bello.DAL.Interface;
+using Bello.Domain.Request.Card;
 using Bello.Domain.Response.Card;
 using Dapper;
 using System;
@@ -52,6 +53,46 @@ namespace Bello.DAL.Implement
             }
         }
 
+        public async Task<SaveCardRes> Create(SaveCardReq saveCardReq)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@CardName", saveCardReq.CardName);
+                parameters.Add("@ListId", saveCardReq.ListId);
+                parameters.Add("@CreateBy", saveCardReq.CreateBy);
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
+                                                            sql: "sp_SaveCard",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<SaveCardRes> DrapDropCard(DrapDropReq drapDropReq)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@CardId", drapDropReq.CardId);
+                parameters.Add("@ListIdAfter", drapDropReq.ListIdAfter);
+                parameters.Add("@PositionNew", drapDropReq.PositionNew);
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
+                                                            sql: "sp_DrapDropCard",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<CardView> Get(int cardId)
         {
             try
@@ -71,12 +112,15 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<IEnumerable<CardView>> Gets()
+        public async Task<IEnumerable<CardView>> Gets(int ListId)
         {
             try
             {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ListId", ListId);
                 return await SqlMapper.QueryAsync<CardView>(cnn: connection,
                                                          sql: "sp_GetCards",
+                                                          param: parameters,
                                                          commandType: CommandType.StoredProcedure);
             }
             catch (Exception ex)
@@ -85,6 +129,30 @@ namespace Bello.DAL.Implement
                 throw ex;
             }
 
+        }
+
+        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@CardId", updateCardReq.CardId);
+                parameters.Add("@CardName", updateCardReq.CardName);
+                parameters.Add("@Description", updateCardReq.Description );
+                parameters.Add("@DueDate", updateCardReq.DueDate );
+                parameters.Add("@ListId", updateCardReq.ListId);
+                parameters.Add("@Priority", updateCardReq.Priority );
+                parameters.Add("@ModifiedBy", updateCardReq.ModifiedBy );
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
+                                                            sql: "sp_UpdateCard",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

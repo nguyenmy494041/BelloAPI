@@ -8,6 +8,6 @@ namespace Bello.Domain.Response.Board
     {
         public int BoardId { get; set; }
         public string BoardName { get; set; }
-        public bool Status { get; set; }
+        public int Status { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bello.BAL.Interface;
+using Bello.Domain.Request.Card;
 using Bello.Domain.Response.Card;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,10 +20,10 @@ namespace Bello.API.Controllers
             this.CardService = CardService;
         }
 
-        [HttpGet("api/card/gets")]
-        public async Task<OkObjectResult> GetsCard()
+        [HttpGet("api/card/gets/{ListId}")]
+        public async Task<OkObjectResult> GetsCard(int ListId)
         {
-            var cards = await CardService.Gets();
+            var cards = await CardService.Gets(ListId);
             return Ok(cards);
         }
         [HttpGet("api/card/get/{id}")]
@@ -47,6 +48,24 @@ namespace Bello.API.Controllers
         public async Task<OkObjectResult> Complete(int cardId)
         {
             var result = await CardService.CompleteCard(cardId);
+            return Ok(result);
+        }
+        [HttpPost("api/card/save")]
+        public async Task<OkObjectResult> Save(SaveCardReq saveCardReq)
+        {
+            var result = await CardService.Create(saveCardReq);
+            return Ok(result);
+        }
+        [HttpPatch("api/card/update")]
+        public async Task<OkObjectResult> Update(UpdateCardReq updateCardReq)
+        {
+            var result = await CardService.Update(updateCardReq);
+            return Ok(result);
+        }
+        [HttpPost("api/card/drapdrop")]
+        public async Task<OkObjectResult> DrapDrop(DrapDropReq drapDropReq)
+        {
+            var result = await CardService.DrapDropCard(drapDropReq);
             return Ok(result);
         }
     }
