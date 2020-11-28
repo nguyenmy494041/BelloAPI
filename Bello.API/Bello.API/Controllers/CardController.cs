@@ -19,10 +19,10 @@ namespace Bello.API.Controllers
             this.CardService = CardService;
         }
 
-        [HttpGet("api/card/gets")]
-        public async Task<OkObjectResult> GetsCard()
+        [HttpGet("api/card/gets/{listId}")]
+        public async Task<OkObjectResult> GetsCard(int listId)
         {
-            var cards = await CardService.Gets();
+            var cards = await CardService.Gets(listId);
             return Ok(cards);
         }
         [HttpGet("api/card/get/{id}")]

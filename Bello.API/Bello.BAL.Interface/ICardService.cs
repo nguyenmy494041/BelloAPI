@@ -8,7 +8,7 @@ namespace Bello.BAL.Interface
 {
     public interface ICardService
     {
-        Task<IEnumerable<CardView>> Gets();
+        Task<IEnumerable<CardView>> Gets(int listId);
         Task<CardView> Get(int cardId);
         Task<SaveCardRes> ChangeStatus(int cardId, int status);
         Task<SaveCardRes> CompleteCard(int cardId);

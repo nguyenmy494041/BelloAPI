@@ -20,10 +20,10 @@ namespace Bello.API.Controllers
             this.ListService = ListService;
         }
 
-        [HttpGet("api/list/gets")]
-        public async Task<OkObjectResult> GetsList()
+        [HttpGet("api/list/gets/{boardId}")]
+        public async Task<OkObjectResult> GetsList(int boardId)
         {
-            var Lists = await ListService.Gets();
+            var Lists = await ListService.Gets(boardId);
             return Ok(Lists);
         }
         [HttpGet("api/list/get/{id}")]

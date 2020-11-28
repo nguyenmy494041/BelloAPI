@@ -9,7 +9,7 @@ namespace Bello.DAL.Interface
 {
     public interface IListRepository
     {
-        Task<IEnumerable<ListView>> Gets();
+        Task<IEnumerable<ListView>> Gets(int boardId);
         Task<ListView> Get(int listId);
         Task<SaveListRes> Save(SaveListReq request);
         Task<SaveListRes> ChangeStatus(int listId, int status);

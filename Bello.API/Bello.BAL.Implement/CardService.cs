@@ -32,9 +32,9 @@ namespace Bello.BAL.Implement
             return await CardRepository.Get(cardId);
         }
 
-        public async Task<IEnumerable<CardView>> Gets()
+        public async Task<IEnumerable<CardView>> Gets(int listId)
         {
-            return await CardRepository.Gets();
+            return await CardRepository.Gets(listId);
         }
        
     }

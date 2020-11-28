@@ -71,12 +71,15 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<IEnumerable<CardView>> Gets()
+        public async Task<IEnumerable<CardView>> Gets(int listId)
         {
             try
             {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ListId", listId);
                 return await SqlMapper.QueryAsync<CardView>(cnn: connection,
                                                          sql: "sp_GetCards",
+                                                         param: parameters,
                                                          commandType: CommandType.StoredProcedure);
             }
             catch (Exception ex)
