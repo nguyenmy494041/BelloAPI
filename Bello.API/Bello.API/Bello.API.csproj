@@ -13,7 +13,6 @@
     <ProjectReference Include="..\Bello.BAL.Interface\Bello.BAL.Interface.csproj" />
     <ProjectReference Include="..\Bello.DAL.Implement\Bello.DAL.Implement.csproj" />
     <ProjectReference Include="..\Bello.DAL.Interface\Bello.DAL.Interface.csproj" />
-    <ProjectReference Include="..\Bello.Domain\Bello.Domain.csproj" />
   </ItemGroup>
 
 
