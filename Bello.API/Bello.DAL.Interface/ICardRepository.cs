@@ -11,6 +11,6 @@ namespace Bello.DAL.Interface
         Task<IEnumerable<CardView>> Gets(int listId);
         Task<CardView> Get(int cardId);
         Task<SaveCardRes> ChangeStatus(int cardId, int status);
-        Task<SaveCardRes> CompleteCard(int cardId);
+        Task<SaveCardRes> CompleteCard(int cardId); 
     }
 }
