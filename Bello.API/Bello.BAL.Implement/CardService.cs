@@ -1,5 +1,6 @@
 ﻿using Bello.BAL.Interface;
 using Bello.DAL.Interface;
+using Bello.Domain.Request.Card;
 using Bello.Domain.Response.Card;
 using System;
 using System.Collections.Generic;
@@ -26,16 +27,30 @@ namespace Bello.BAL.Implement
             return await CardRepository.CompleteCard(cardId);
         }
 
+        public async Task<SaveCardRes> Create(SaveCardReq saveCardReq)
+        {
+            return await CardRepository.Create(saveCardReq);
+        }
+
+        public async Task<SaveCardRes> DrapDropCard(DrapDropReq drapDropReq)
+        {
+            return await CardRepository.DrapDropCard(drapDropReq);
+        }
+
         public async Task<CardView> Get(int cardId)
         {
 
             return await CardRepository.Get(cardId);
         }
 
-        public async Task<IEnumerable<CardView>> Gets(int listId)
+        public async Task<IEnumerable<CardView>> Gets(int ListId)
         {
-            return await CardRepository.Gets(listId);
+            return await CardRepository.Gets(ListId);
         }
-       
+
+        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)
+        {
+            return await CardRepository.Update(updateCardReq);
+        }
     }
 }
