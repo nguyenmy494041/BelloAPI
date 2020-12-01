@@ -4,12 +4,11 @@ using System.Text;
 
 namespace Bello.Domain.Request.Card
 {
-    public class UpdateCardReq
+    public class UpdateName
     {
         public int CardId { get; set; }
         public string CardName { get; set; }
-        public string Description { get; set; }
-        public DateTime DueDate { get; set; }      
-        public int ModifiedBy { get; set; }
+        public int UserId { get; set; }
+        
     }
 }

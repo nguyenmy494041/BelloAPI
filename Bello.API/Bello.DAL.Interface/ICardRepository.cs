@@ -17,5 +17,6 @@ namespace Bello.DAL.Interface
         Task<SaveCardRes> Create(SaveCardReq saveCardReq);
         Task<SaveCardRes> Update(UpdateCardReq updateCardReq);
         Task<SaveCardRes> DrapDropCard(DrapDropReq drapDropReq);
+        Task<SaveCardRes> UpdateName(UpdateName updateName);
     }
 }

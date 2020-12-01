@@ -52,5 +52,11 @@ namespace Bello.API.Controllers
             var result = await ListService.ChangeStatus(listId,status);
             return Ok(result);
         }
+        [HttpPost("api/list/drapdroplist/{listId}/{positionNew}")]
+        public async Task<OkObjectResult> Drapdrop(int listId, int positionNew)
+        {
+            var result = await ListService.DrapDropList(listId, positionNew);
+            return Ok(result);
+        }
     }
 }
