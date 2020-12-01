@@ -13,5 +13,6 @@ namespace Bello.BAL.Interface
         Task<ListView> Get(int ListId);
         Task<SaveListRes> Save(SaveListReq request);
         Task<SaveListRes> ChangeStatus(int listId, int status);
+        Task<SaveListRes> DrapDropList(int listId, int positionNew);
     }
 }

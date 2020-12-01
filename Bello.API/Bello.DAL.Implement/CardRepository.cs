@@ -139,12 +139,30 @@ namespace Bello.DAL.Implement
                 parameters.Add("@CardId", updateCardReq.CardId);
                 parameters.Add("@CardName", updateCardReq.CardName);
                 parameters.Add("@Description", updateCardReq.Description );
-                parameters.Add("@DueDate", updateCardReq.DueDate );
-                parameters.Add("@ListId", updateCardReq.ListId);
-                parameters.Add("@Priority", updateCardReq.Priority );
+                parameters.Add("@DueDate", updateCardReq.DueDate );                
                 parameters.Add("@ModifiedBy", updateCardReq.ModifiedBy );
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_UpdateCard",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<SaveCardRes> UpdateName(UpdateName updateName)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@CardId", updateName.CardId);
+                parameters.Add("@CardName", updateName.CardName);              
+                parameters.Add("@UserId", updateName.UserId);
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
+                                                            sql: "sp_UpdateNameCard",
                                                             param: parameters,
                                                             commandType: CommandType.StoredProcedure);
 

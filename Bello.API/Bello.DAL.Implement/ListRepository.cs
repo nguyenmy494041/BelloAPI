@@ -33,6 +33,25 @@ namespace Bello.DAL.Implement
             }
         }
 
+        public async Task<SaveListRes> DrapDropList(int listId, int positionNew)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ListId", listId);
+                parameters.Add("@PositionNew", positionNew);              
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveListRes>(cnn: connection,
+                                                            sql: "sp_DrapdropList",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<ListView> Get(int ListId)
         {
             try
