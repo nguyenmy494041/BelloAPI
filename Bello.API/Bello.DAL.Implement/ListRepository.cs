@@ -86,7 +86,7 @@ namespace Bello.DAL.Implement
                                                             commandType: CommandType.StoredProcedure);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new SaveListRes()
                 {
