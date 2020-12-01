@@ -46,7 +46,7 @@ namespace Bello.API.Controllers
         }
         [HttpPost("api/card/complete/{cardId}")]
         public async Task<OkObjectResult> Complete(int cardId)
-        {
+        {   
             var result = await CardService.CompleteCard(cardId);
             return Ok(result);
         }

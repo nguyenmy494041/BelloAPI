@@ -6,43 +6,67 @@
     <title>@ViewData["Title"] - Bello.WEB</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="shortcut icon" href="">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Bello.WEB</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <header class="masthead">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Bello.WEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="boards-menu">
+
+            <button class="boards-btn btn"><i class="fab fa-trello boards-btn-icon"></i>Boards</button>
+
+            <div class="board-search">
+                <input type="search" class="board-search-input" aria-label="Board Search">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            </div>
+
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+
+        <div class="logo">
+
+            <img src="/logo.PNG" alt="" style="width:150px;height:80px">
+
+        </div>
+
+        <div class="user-settings">
+
+            <button class="user-settings-btn btn" aria-label="Create">
+                <i class="fas fa-plus" aria-hidden="true"> </i>
+            </button>
+
+            <button class="user-settings-btn btn" aria-label="Information">
+                <i class="fas fa-info-circle" aria-hidden="true"> </i>
+            </button>
+
+            <button class="user-settings-btn btn" aria-label="Notifications">
+                <i class="fas fa-bell" aria-hidden="true"></i>
+            </button>
+
+            <button class="user-settings-btn btn" aria-label="User Settings">
+                <i class="fas fa-user-circle" aria-hidden="true"></i>
+            </button>
+
+        </div>
+
+    </header>
+    @RenderBody()
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/cce24d2a9e.js"></script>
+    <script src="~/js/site.js"></script>
+
+
 </body>
+
+@RenderSection("Scripts", required: false)
+
+
 </html>
+
