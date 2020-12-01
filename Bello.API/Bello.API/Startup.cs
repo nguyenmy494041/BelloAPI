@@ -52,7 +52,7 @@ namespace Bello.API
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Bello API");
             });
 
-
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
 
             app.UseRouting();
