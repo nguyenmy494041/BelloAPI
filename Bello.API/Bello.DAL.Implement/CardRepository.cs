@@ -112,6 +112,21 @@ namespace Bello.DAL.Implement
 
         }
 
+        public async Task<IEnumerable<CardView>> GetCardSaved()
+        {
+            try
+            {               
+                return await SqlMapper.QueryAsync<CardView>(cnn: connection,
+                                                         sql: "sp_GetCardSaved",                                                         
+                                                         commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task<IEnumerable<CardView>> Gets(int ListId)
         {
             try
@@ -131,15 +146,54 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)
+        public async Task<IEnumerable<CardView>> OrderByDueDate(int ListId)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ListId", ListId);
+                return await SqlMapper.QueryAsync<CardView>(cnn: connection,
+                                                         sql: "sp_OrderByDueDate",
+                                                          param: parameters,
+                                                         commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public async Task<IEnumerable<CardView>> OrderByName(int ListId)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ListId", ListId);
+                return await SqlMapper.QueryAsync<CardView>(cnn: connection,
+                                                         sql: "sp_OrderByName",
+                                                          param: parameters,
+                                                         commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)
+        {
+            try
+             {
+              
+                DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CardId", updateCardReq.CardId);
                 parameters.Add("@CardName", updateCardReq.CardName);
                 parameters.Add("@Description", updateCardReq.Description );
-                parameters.Add("@DueDate", updateCardReq.DueDate );                
+                parameters.Add("@DueDate", updateCardReq.DueDate );
+                parameters.Add("@Priority", updateCardReq.Priority);
                 parameters.Add("@ModifiedBy", updateCardReq.ModifiedBy );
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_UpdateCard",

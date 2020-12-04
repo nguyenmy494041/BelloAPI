@@ -74,5 +74,23 @@ namespace Bello.API.Controllers
             var result = await CardService.UpdateName(updateName);
             return Ok(result);
         }
+        [HttpGet("api/card/orderbyname/{listid}")]
+        public async Task<OkObjectResult> OrderByName(int listid)
+        {
+            var cards = await CardService.OrderByName(listid);
+            return Ok(cards);
+        }
+        [HttpGet("api/card/orderbyduedate/{listId}")]
+        public async Task<OkObjectResult> OrderByDueDate(int listId)
+        {
+            var cards = await CardService.OrderByDueDate(listId);
+            return Ok(cards);
+        }
+        [HttpGet("api/card/GetCardSaved")]
+        public async Task<OkObjectResult> GetCardSaved()
+        {
+            var cards = await CardService.GetCardSaved();
+            return Ok(cards);
+        }
     }
 }
