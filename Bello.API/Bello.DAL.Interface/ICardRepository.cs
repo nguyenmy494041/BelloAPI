@@ -18,5 +18,8 @@ namespace Bello.DAL.Interface
         Task<SaveCardRes> Update(UpdateCardReq updateCardReq);
         Task<SaveCardRes> DrapDropCard(DrapDropReq drapDropReq);
         Task<SaveCardRes> UpdateName(UpdateName updateName);
+        Task<IEnumerable<CardView>> OrderByName(int ListId);
+        Task<IEnumerable<CardView>> OrderByDueDate(int ListId);
+        Task<IEnumerable<CardView>> GetCardSaved();
     }
 }

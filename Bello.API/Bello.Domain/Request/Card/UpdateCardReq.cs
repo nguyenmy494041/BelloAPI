@@ -11,5 +11,6 @@ namespace Bello.Domain.Request.Card
         public string Description { get; set; }
         public DateTime DueDate { get; set; }      
         public int ModifiedBy { get; set; }
+        public int Priority { get; set; }
     }
 }

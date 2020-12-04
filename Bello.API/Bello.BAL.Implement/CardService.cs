@@ -43,9 +43,24 @@ namespace Bello.BAL.Implement
             return await CardRepository.Get(cardId);
         }
 
+        public async Task<IEnumerable<CardView>> GetCardSaved()
+        {
+            return await CardRepository.GetCardSaved();
+        }
+
         public async Task<IEnumerable<CardView>> Gets(int ListId)
         {
             return await CardRepository.Gets(ListId);
+        }
+
+        public async Task<IEnumerable<CardView>> OrderByDueDate(int ListId)
+        {
+            return await CardRepository.OrderByDueDate(ListId);
+        }
+
+        public async Task<IEnumerable<CardView>> OrderByName(int ListId)
+        {
+            return await CardRepository.OrderByName(ListId);
         }
 
         public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)

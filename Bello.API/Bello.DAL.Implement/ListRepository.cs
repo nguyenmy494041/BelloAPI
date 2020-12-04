@@ -71,6 +71,22 @@ namespace Bello.DAL.Implement
 
         }
 
+        public async Task<IEnumerable<ListView>> GetListSave()
+        {
+            try
+            {
+               
+                return await SqlMapper.QueryAsync<ListView>(cnn: connection,
+                                                         sql: "sp_GetListSave",                                                        
+                                                         commandType: CommandType.StoredProcedure);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task<IEnumerable<ListView>> Gets(int boardId)
         {
             try
@@ -88,6 +104,25 @@ namespace Bello.DAL.Implement
                 throw ex;
             }
 
+        }
+
+        public async Task<SaveListRes> MoveAllList(int listIdBefore, int listIdAfter)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@ListIdBefore", listIdBefore);
+                parameters.Add("@ListidAfter", listIdAfter);
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveListRes>(cnn: connection,
+                                                            sql: "sp_MoveAllCard",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public async Task<SaveListRes> Save(SaveListReq request)
@@ -112,6 +147,24 @@ namespace Bello.DAL.Implement
                     ListId = 0,
                     Message = "Something went wrong please try again!!"
                 };
+            }
+        }
+
+        public async Task<SaveListRes> StorageAllCard(int listId)
+        {
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();               
+                parameters.Add("@ListId", listId);
+                return await SqlMapper.QueryFirstOrDefaultAsync<SaveListRes>(cnn: connection,
+                                                            sql: "sp_StorageAllCard",
+                                                            param: parameters,
+                                                            commandType: CommandType.StoredProcedure);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
     }
