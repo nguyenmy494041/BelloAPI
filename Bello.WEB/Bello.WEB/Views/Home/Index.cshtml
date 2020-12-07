@@ -2,7 +2,131 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="lists-container" id="Alllist">
+</section>
+
+
+<section>
+    <div class="modal fade modal-lg" id="mymodal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLongTitle" aria-hidden="true" name="mymodal">
+        <div class="modal-dialog modal-lg" role="document" style="margin:0px auto;">
+            <input hidden id="cardIdmodal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="content-header">
+                        <div class="content-header-icon">
+                            <span><i class="fas fa-address-card"></i></span>
+                        </div>
+                        <div class="content-header-board">
+                            <div>
+                                <input class="form-control" id="cardname" value="${v.cardName}" />
+                            </div>
+                            <span>Trong danh sách <i class="fas fa-eye"></i></span>
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="float: left;">
+                    <div class="content-body-member">
+                        <div>
+                            <h5>Thành Viên</h5>
+                        </div>
+                        <div class="member-img">
+
+                            <a href="#">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <div style="margin-top: 5px !important;">
+                                <h5>Ngày đến hạn</h5>
+                            </div>
+                            <div class="duedate">
+                                <input class="form-control" id="duedatelocal" type="datetime-local"
+                                       style="font-size: 14px;">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="margin-top: 5px !important;">
+                                <h5>Độ ưu tiên</h5>
+                            </div>
+                            <div class="priority">
+                                <select class="form-control" id="priority111" style="font-size: 14px;">
+                                    <option value="3">Thấp</option>
+                                    <option value="2">Trung bình</option>
+                                    <option value="1">Cao</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="content-body-description">
+                        <div class="content-icon">
+                            <span><i class="fas fa-align-left"></i></span>
+                        </div>
+                        <div class="content-description">
+                            <div>
+                                <h5>Mô Tả</h5>
+                            </div>
+                            <div class="content-description-form">
+                                <form action="">
+                                    <div class="form-group">
+                                        <textarea style="font-size: 14px;" class="form-control" rows="3"
+                                                  id="description" placeholder="Thêm mô tả chi tiết...."></textarea>
+                                    </div>
+
+                                    <div>
+                                        <button onclick="card.updateCard()" style="margin-right: 20px;">Lưu</button>
+                                        <button onclick="card.completeCard()">Hoàn thành</button>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-body-work">
+                        <div class="content-icon">
+                            <span><i class="fas fa-comment-dots"></i></span>
+                        </div>
+                        <div class="content-work">
+                            <div>
+                                <div>
+                                    <h5>Hành Động</h5>
+                                </div>
+                                <div class="detail">
+                                    <button id="show-detail" onclick="ShowDetail()">Hiện chi tiết</button>
+                                    <button id="hide-detail" onclick="HideDetail()">Ẩn chi tiết</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-body-work">
+                        <div class="content-img">
+
+                        </div>
+                        <div class="content-work-form">
+                            <form action="">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="2"
+                                              placeholder="Viết bình luận"></textarea>
+                                    <button type="submit" id="save-comment">Lưu</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+@section Scripts{
+    <script src="~/js/Style.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+}

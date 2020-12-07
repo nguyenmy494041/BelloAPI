@@ -1,0 +1,56 @@
+﻿.card__propriotylow {
+    background-color: rgb(11, 117, 117);
+    float: right;
+}
+
+.card__propriotymedium {
+    background-color: rgb(158, 190, 12);
+    float: right;
+}
+
+.card__propriotyhigh {
+    background-color: rgb(216 53 10);
+    border-radius: 5px;
+    float: right;
+}
+
+.isdone {
+    background: #61bd4f;
+    float: left;
+    margin-left: 0;
+    color: azure;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.isnotdone {
+    background: rgb(236 12 95);
+    float: left;
+    margin-left: 0;
+    color: azure;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.duedateyet {
+    background: #f1efef;
+    border-radius: 5px;
+}
+
+.duedatenear {
+    background: #61bd4f;
+    border-radius: 5px;
+}
+
+.duedateover {
+    background: #6e1b10;
+    border-radius: 5px;
+}
+
+.card__propriotynull {
+    display: none;
+}
+
+.duedatenull {
+    display: none;
+}
