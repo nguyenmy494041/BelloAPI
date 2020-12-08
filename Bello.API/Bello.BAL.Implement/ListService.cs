@@ -33,14 +33,29 @@ namespace Bello.BAL.Implement
             return await listRepository.Get(ListId);
         }
 
+        public async Task<IEnumerable<ListView>> GetListSave()
+        {
+            return await listRepository.GetListSave();
+        }
+
         public async Task<IEnumerable<ListView>> Gets(int boardId)
         {
             return await listRepository.Gets(boardId);
         }
 
+        public async Task<SaveListRes> MoveAllList(int listIdBefore, int listIdAfter)
+        {
+            return await listRepository.MoveAllList(listIdBefore, listIdAfter);
+        }
+
         public async Task<SaveListRes> Save(SaveListReq request)
         {
             return await listRepository.Save(request);
+        }
+
+        public async Task<SaveListRes> StorageAllCard(int listId)
+        {
+            return await listRepository.StorageAllCard(listId);
         }
     }
 }

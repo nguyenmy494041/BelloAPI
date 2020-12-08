@@ -4,13 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Bello.WEB</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/modal.css" />
+    <link rel="stylesheet" href="~/css/card.css" />
 </head>
 <body>
+
+
     <header class="masthead">
 
         <div class="boards-menu">
@@ -25,8 +31,7 @@
         </div>
 
         <div class="logo">
-
-            <img src="/logo.PNG" alt="" style="width:150px;height:80px">
+            <img src="~/images/logo.PNG" alt="" style="width:150px;height:80px" />
 
         </div>
 
@@ -51,22 +56,262 @@
         </div>
 
     </header>
-    @RenderBody()
+    <!-- End of masthead -->
+    <!-- Board info bar -->
+    <section class="board-info-bar">
 
+        <div class="board-controls">
+
+            <button class="board-title btn">
+                <h2>C0520G1</h2>
+            </button>
+
+            <button class="star-btn btn" aria-label="Star Board">
+                <i class="far fa-star" aria-hidden="true"></i>
+            </button>
+
+            <button class="personal-btn btn"> Nhóm cá nhân</button>
+
+            <button class="private-btn btn">
+                <i class="fas fa-briefcase private-btn-icon" aria-hidden="true"></i>Riêng
+                tư
+            </button>
+
+        </div>
+
+        <button class="menu-btn btn" id="menu-btn">
+            <i class="fas fa-ellipsis-h menu-btn-icon" aria-hidden="true"></i>Show
+            Menu
+        </button>
+    </section>
+    <section id="show-menu-board">
+        <div id="board-menu-content" class="board-menu">
+            <div>
+                <h4>Menu</h4>
+                <span id="close-menu-content"><i class="fas fa-times"></i></span>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-table"></i></span>
+                        <div>
+                            <span>Về bảng này</span>
+                            <p>Thêm mô tả vào bảng của bạn</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>
+                            <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80"
+                                 alt="error">
+                        </span>
+                        <div>
+                            <span>Thay đổi hình nền</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-search"></i></span>
+                        <div>
+                            <span>Tìm kiếm thẻ</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-dragon"></i></span>
+                        <div>
+                            <span>Các nhãn dán</span>
+                        </div>
+                    </a>
+                </li>
+                <li id="add-board-menu-header-btn">
+                    <a href="#">
+                        <span><i class="fas fa-ellipsis-h"></i></span>
+                        <div>
+                            <span>Thêm</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-address-card"></i></span>
+                        <div>
+                            <span>Butler</span>
+                            <p>Tự động hóa các thẻ và hơn thế nữa...</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div id="board-menu-header" class="board-menu">
+            <div>
+                <a href="#" id="back-menu-content"><i class="fas fa-chevron-left"></i></a>
+                <h4>Mở rộng</h4>
+                <span id="close-menu-header"><i class="fas fa-times"></i></span>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-cog"></i></span>
+                        <div>
+                            <span>Cài đặt</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-tags"></i></span>
+                        <div>
+                            <span>Nhãn</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-boxes"></i></span>
+                        <div>
+                            <span>Bộ sưu tập</span>
+                        </div>
+                    </a>
+                </li>
+                <li id="storage-btn">
+                    <a href="#">
+                        <span><i class="fas fa-save"></i></span>
+                        <div>
+                            <span onclick="menu.drawCard()">Thẻ đã lưu trữ</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-envelope"></i></span>
+                        <div>
+                            <span>Cài đặt thêm thẻ qua email</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-eye"></i></span>
+                        <div>
+                            <span>Theo dõi</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-clone"></i></span>
+                        <div>
+                            <span>Sao chép bảng</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-share-alt"></i></span>
+                        <div>
+                            <span>In và xuất</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-door-closed"></i></span>
+                        <div>
+                            <span>Rời khỏi bảng...</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="board-menu-storage" class="board-menu">
+            <div>
+                <a href="#" id="back-menu-header"><i class="fas fa-chevron-left"></i></a>
+                <h4>Lưu trữ</h4>
+                <span id="close-menu-storage"><i class="fas fa-times"></i></span>
+            </div>
+            <hr>
+            <div id="card-storage">
+                <div>
+                    <input type="text" placeholder="Tìm kiếm lưu trữ...">
+                    <a href="#" id="list-storage-btn">Danh sách đã lưu trữ</a>
+                </div>
+                <div id="getCardSave">
+                    <ul class="card-storage-all">
+                        <li class="card__item" id="card__item__id">
+                            <span class="card__tag card__tag--browser">Browser</span>
+                            <h6 class="card__title">Lightbox loading issue on Safari</h6>
+                            <ol class="card__actions">
+                                <li class="card__actions--wrapper">
+                                </li>
+                                <ol class="card__avatars">
+                                    <li class="card__avatars--item">
+                                        Photo by Philip Martin on Unsplash
+                                        <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80"
+                                             alt="Man standing near balcony" class="avatar__image">
+                                    </li>
+                                </ol>
+
+                            </ol>
+                        </li>
+                        <div class="return-card">
+                            <a href="" id="to-return__id">Hoàn trả vào bảng</a>
+                            <p>-</p>
+                            <a href="" id="delete__id">Xóa</a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div id="list-storage">
+                <div>
+                    <input type="text" placeholder="Tìm kiếm lưu trữ...">
+                    <a href="#" id="card-storage-btn">Thẻ đã lưu trữ</a>
+                </div>
+                <div id="drapListSave">
+
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+    <div>
+        <main role="main" class="pb-3">
+            <br />
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - Bello.WEB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <script src="https://use.fontawesome.com/cce24d2a9e.js"></script>
-    <script src="~/js/site.js"></script>
 
-
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="~/lib/bootbox/bootbox.min.js"></script>
+    <script src="~/lib/font-awesome/js/all.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
 </body>
-
-@RenderSection("Scripts", required: false)
-
-
 </html>
 

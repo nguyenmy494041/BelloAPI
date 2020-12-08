@@ -14,5 +14,8 @@ namespace Bello.DAL.Interface
         Task<SaveListRes> Save(SaveListReq request);
         Task<SaveListRes> ChangeStatus(int listId, int status);
         Task<SaveListRes> DrapDropList(int listId, int positionNew);
+        Task<SaveListRes> MoveAllList(int listIdBefore, int listIdAfter);
+        Task<SaveListRes> StorageAllCard(int listId);
+        Task<IEnumerable<ListView>> GetListSave();
     }
 }

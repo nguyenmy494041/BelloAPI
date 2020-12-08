@@ -58,5 +58,23 @@ namespace Bello.API.Controllers
             var result = await ListService.DrapDropList(listId, positionNew);
             return Ok(result);
         }
+        [HttpPost("api/list/moveAllList/{listIdBefore}/{listIdAfter}")]
+        public async Task<OkObjectResult> MoveAllList(int listIdBefore, int listIdAfter)
+        {
+            var result = await ListService.MoveAllList(listIdBefore, listIdAfter);
+            return Ok(result);
+        }
+        [HttpPost("api/list/StorageAllCard/{listId}")]
+        public async Task<OkObjectResult> StorageAllCard(int listId)
+        {
+            var result = await ListService.StorageAllCard(listId);
+            return Ok(result);
+        }
+        [HttpGet("api/list/GetListSaved")]
+        public async Task<OkObjectResult> GetListSave()
+        {
+            var Lists = await ListService.GetListSave();
+            return Ok(Lists);
+        }
     }
 }
