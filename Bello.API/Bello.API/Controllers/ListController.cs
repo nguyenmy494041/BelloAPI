@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bello.BAL.Interface;
+using Bello.DAL.Implement;
 using Bello.Domain.Request.List;
 using Bello.Domain.Response.List;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bello.API.Controllers
@@ -14,6 +16,7 @@ namespace Bello.API.Controllers
     public class ListController : ControllerBase
     {
         private readonly IListService ListService;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public ListController(IListService ListService)
         {
@@ -42,14 +45,16 @@ namespace Bello.API.Controllers
         [Route("api/list/save")]
         public async Task<OkObjectResult> SaveCourse(SaveListReq request)
         {
-            var result = await ListService.Save(request);
+            var user = await userManager.GetUserAsync(User);
+            var result = await ListService.Save(request,user.Id);
             return Ok(result);
         }
 
         [HttpPost("api/list/changestatus/{listId}/{status}")]
         public async Task<OkObjectResult> ChangeStatus(int listId, int status)
         {
-            var result = await ListService.ChangeStatus(listId,status);
+            var user = await userManager.GetUserAsync(User);
+            var result = await ListService.ChangeStatus(listId,status,user.Id);
             return Ok(result);
         }
         [HttpPost("api/list/drapdroplist/{listId}/{positionNew}")]

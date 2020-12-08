@@ -2,6 +2,7 @@
 using Bello.Domain.Request.Board;
 using Bello.Domain.Response.Board;
 using Dapper;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,14 +13,15 @@ namespace Bello.DAL.Implement
 {
     public class BoardRepository : BaseRepository, IBoardRepository
     {
-        public async Task<SaveBoardRes> ChangeStatus(int boardId, int status)
-        {
+        
+        public async Task<SaveBoardRes> ChangeStatus(int boardId, int status,string userid)
+        {   
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BoardId", boardId);
                 parameters.Add("@Status", status);
-                parameters.Add("@UserId", 1);
+                parameters.Add("@UserId", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveBoardRes>(cnn: connection,
                                                             sql: "sp_ChangeStatusBoard",
                                                             param: parameters,
@@ -67,14 +69,14 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<SaveBoardRes> Save(SaveBoardReq request)
+        public async Task<SaveBoardRes> Save(SaveBoardReq request,string userid)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BoardId", request.BoardId);
                 parameters.Add("@BoardName", request.BoardName);
-                parameters.Add("@UserId", 1);
+                parameters.Add("@UserId", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveBoardRes>(cnn: connection,
                                                             sql: "sp_SaveBoard",
                                                             param: parameters,

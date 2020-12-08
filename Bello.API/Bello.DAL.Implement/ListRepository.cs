@@ -13,14 +13,14 @@ namespace Bello.DAL.Implement
 {
     public class ListRepository : BaseRepository, IListRepository
     {
-        public async Task<SaveListRes> ChangeStatus(int listId, int status)
+        public async Task<SaveListRes> ChangeStatus(int listId, int status,string userid)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@ListId", listId);
                 parameters.Add("@Status", status);
-                parameters.Add("@UserId", 1);
+                parameters.Add("@UserId", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveListRes>(cnn: connection,
                                                             sql: "sp_ChangeStatusList",
                                                             param: parameters,
@@ -125,7 +125,7 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveListRes> Save(SaveListReq request)
+        public async Task<SaveListRes> Save(SaveListReq request,string userid)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace Bello.DAL.Implement
                 parameters.Add("@ListId", request.ListId);
                 parameters.Add("@ListName", request.ListName);
                 parameters.Add("@BoardId", request.BoardId);
-                parameters.Add("@UserId", 1);
+                parameters.Add("@UserId", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveListRes>(cnn: connection,
                                                             sql: "sp_SaveList",
                                                             param: parameters,
