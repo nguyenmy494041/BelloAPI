@@ -138,9 +138,10 @@ namespace Bello.DAL.Implement
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CardId", updateCardReq.CardId);
                 parameters.Add("@CardName", updateCardReq.CardName);
-                parameters.Add("@Description", updateCardReq.Description );
-                parameters.Add("@DueDate", updateCardReq.DueDate );                
-                parameters.Add("@ModifiedBy", updateCardReq.ModifiedBy );
+                parameters.Add("@Description", updateCardReq.Description);
+                parameters.Add("@DueDate", updateCardReq.DueDate);                
+                parameters.Add("@Priority", updateCardReq.Priority);                
+                parameters.Add("@ModifiedBy", updateCardReq.ModifiedBy);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_UpdateCard",
                                                             param: parameters,

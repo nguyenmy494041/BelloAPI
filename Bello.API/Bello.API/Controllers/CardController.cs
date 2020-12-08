@@ -56,7 +56,7 @@ namespace Bello.API.Controllers
             var result = await CardService.Create(saveCardReq);
             return Ok(result);
         }
-        [HttpPatch("api/card/update")]
+        [HttpPost("api/card/update")]
         public async Task<OkObjectResult> Update(UpdateCardReq updateCardReq)
         {
             var result = await CardService.Update(updateCardReq);
