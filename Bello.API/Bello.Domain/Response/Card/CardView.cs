@@ -17,7 +17,7 @@ namespace Bello.Domain.Response.Card
         public int Priority { get; set; }
         public int Status { get; set; }
         public bool IsDone { get; set; }
-        public string DueDateStr { get; set; }
+        
 
     }
 }
