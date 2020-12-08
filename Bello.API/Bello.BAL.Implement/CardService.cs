@@ -52,5 +52,10 @@ namespace Bello.BAL.Implement
         {
             return await CardRepository.Update(updateCardReq);
         }
+
+        public async Task<SaveCardRes> UpdateName(UpdateName updateName)
+        {
+            return await CardRepository.UpdateName(updateName);
+        }
     }
 }

@@ -22,6 +22,11 @@ namespace Bello.BAL.Implement
             return await listRepository.ChangeStatus(listId,status);
         }
 
+        public async Task<SaveListRes> DrapDropList(int listId, int positionNew)
+        {
+            return await listRepository.DrapDropList(listId, positionNew);
+        }
+
         public async Task<ListView> Get(int ListId)
         {
 

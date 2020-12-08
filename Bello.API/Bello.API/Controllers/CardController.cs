@@ -68,5 +68,11 @@ namespace Bello.API.Controllers
             var result = await CardService.DrapDropCard(drapDropReq);
             return Ok(result);
         }
+        [HttpPatch("api/card/updatename")]
+        public async Task<OkObjectResult> UpdateName(UpdateName updateName)
+        {
+            var result = await CardService.UpdateName(updateName);
+            return Ok(result);
+        }
     }
 }
