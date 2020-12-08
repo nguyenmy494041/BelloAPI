@@ -1,4 +1,5 @@
 ﻿using Bello.BAL.Interface;
+using Bello.DAL.Interface;
 using Bello.Domain.Request.Account;
 using Bello.Domain.Response.Account;
 using System;
@@ -10,19 +11,19 @@ namespace Bello.BAL.Implement
 {
     public class AccountService : IAccountService
     {
-        private readonly IAccountService accountService;
-        public AccountService(IAccountService accountService)
+        private readonly IAccountRepository accountRepository;
+        public AccountService(IAccountRepository accountRepository)
         {
-            this.accountService = accountService;
+            this.accountRepository = accountRepository;
         }
         public Task<LoginResult> Login(LoginRequest request)
         {
-            return accountService.Login(request);
+            return accountRepository.Login(request);
         }
 
         public Task<RegisterResult> Register(RegisterRequest request)
         {
-            return accountService.Register(request);
+            return accountRepository.Register(request);
         }
     }
 }

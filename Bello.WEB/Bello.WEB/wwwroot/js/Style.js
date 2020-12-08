@@ -21,7 +21,7 @@ function addList(saveList, closeList) {
 list.drawList = function () {
     count = 0;
     $.ajax({
-        url: `list/gets/1`,
+        url: `list/gets/4`,
         method: 'GET',
         dataType: 'JSON',
         success: function (response) {
@@ -139,7 +139,7 @@ list.drawList = function () {
             });
             saveListBtn.addEventListener("click", function () {
                 let listname = listInputBox.value;
-                list.saveList(listname, 1);
+                list.saveList(listname, 4);
             });
         }
     });
