@@ -17,9 +17,9 @@ namespace Bello.BAL.Implement
             this.listRepository = listRepository;
         }
 
-        public async Task<SaveListRes> ChangeStatus(int listId, int status)
+        public async Task<SaveListRes> ChangeStatus(int listId, int status,string userid)
         {
-            return await listRepository.ChangeStatus(listId,status);
+            return await listRepository.ChangeStatus(listId,status,userid);
         }
 
         public async Task<SaveListRes> DrapDropList(int listId, int positionNew)
@@ -48,9 +48,9 @@ namespace Bello.BAL.Implement
             return await listRepository.MoveAllList(listIdBefore, listIdAfter);
         }
 
-        public async Task<SaveListRes> Save(SaveListReq request)
+        public async Task<SaveListRes> Save(SaveListReq request,string userid)
         {
-            return await listRepository.Save(request);
+            return await listRepository.Save(request,userid);
         }
 
         public async Task<SaveListRes> StorageAllCard(int listId)

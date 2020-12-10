@@ -41,10 +41,11 @@ namespace Bello.API
             services.AddScoped<IListRepository, ListRepository>();
             services.AddScoped<ICardService, CardService>();
             services.AddScoped<ICardRepository, CardRepository>();
+            
             services.AddDbContext<BelloDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BelloConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<BelloDbContext>();
-            services.AddTransient<IAccountService, AccountService>();
-            services.AddTransient<IAccountRepository, AccountRepository>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
             services.AddSwaggerGen();
         }
 

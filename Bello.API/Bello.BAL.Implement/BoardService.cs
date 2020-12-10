@@ -18,9 +18,9 @@ namespace Bello.BAL.Implement
             this.boardRepository = boardRepository;
         }
 
-        public async Task<SaveBoardRes> ChangeStatus(int boardId, int status)
+        public async Task<SaveBoardRes> ChangeStatus(int boardId, int status, string userid)
         {
-            return await boardRepository.ChangeStatus(boardId,status);
+            return await boardRepository.ChangeStatus(boardId,status, userid);
         }
 
         public async Task<BoardView> Get(int boardId)
@@ -34,9 +34,9 @@ namespace Bello.BAL.Implement
             return await boardRepository.Gets();
         }
 
-        public async Task<SaveBoardRes> Save(SaveBoardReq request)
+        public async Task<SaveBoardRes> Save(SaveBoardReq request,string userid)
         {
-            return await boardRepository.Save(request);
+            return await boardRepository.Save(request,userid);
         }
     }
 }

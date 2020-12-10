@@ -49,7 +49,9 @@ namespace Bello.DAL.Implement
                 return result;
             }
             catch (Exception ex) 
-            { throw ex; }
+            { 
+                throw ex; 
+            }
 
         }
 
