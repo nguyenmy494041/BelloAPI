@@ -1,0 +1,125 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+}
+
+.home-board {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+    display: flex;
+}
+
+.board-left {
+    width: 40%;
+}
+
+    .board-left > div {
+        display: flex;
+        padding: 20px;
+    }
+
+    .board-left div > span {
+        margin-right: 4px;
+    }
+
+    .board-left div > p {
+        font-size: 15px;
+    }
+
+    .board-left > img {
+        width: 100%;
+        height: auto;
+    }
+
+.board-right {
+    width: 60%;
+    margin-top: 20px;
+}
+
+.board-right-header {
+    display: inline-flex;
+    align-items: center;
+}
+
+    .board-right-header > span {
+        margin-right: 10px;
+    }
+
+    .board-right-header > h3 {
+        margin: 0;
+    }
+
+.board-right-table {
+    width: 100%;
+    display: flex;
+}
+
+    .board-right-table ul {
+        width: 100%;
+        flex-wrap: wrap;
+        display: flex;
+        list-style:none;
+    }
+
+        .board-right-table ul li {
+            width: 23%;
+            height: 100px;
+            border-radius: 5px;
+            margin: 5px 10px 5px 0;
+        }
+
+            .board-right-table ul li > div {
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                text-decoration: none;
+                color: white;
+                position: relative;
+            }
+
+            .board-right-table ul li div > span {
+                font-weight: 600;
+                position: absolute;
+                top: 5px;
+                left: 15px;
+            }
+        /* .board-right-table ul .add-table{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+        .board-right-table ul .add-table > a {
+            text-decoration: none;
+            color: #525151;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(9,30,66,.04);
+        }
+
+            .board-right-table ul .add-table > a:hover {
+                background-color: rgba(9,30,66,.08);
+            }
+
+@media screen and (max-width: 960px) {
+    .board-right-table ul li {
+        width: 31%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .board-right-table ul li {
+        width: 45%;
+    }
+}

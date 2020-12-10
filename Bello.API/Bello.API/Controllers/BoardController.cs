@@ -46,15 +46,13 @@ namespace Bello.API.Controllers
         [Route("api/board/save")]
         public async Task<OkObjectResult> SaveCourse(SaveBoardReq request)
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await boardService.Save(request, user.Id);
+            var result = await boardService.Save(request);
             return Ok(result);
         }
-        [HttpPost("api/board/changestatus/{boardId}/{status}")]
-        public async Task<OkObjectResult> ChangeStatus(int boardId, int status)
+        [HttpPost("api/board/changestatus/{boardId}/{status}/{userId}")]
+        public async Task<OkObjectResult> ChangeStatus(int boardId,int status, string userId )
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await boardService.ChangeStatus(boardId,status,user.Id);
+            var result = await boardService.ChangeStatus(boardId,status, userId);
             return Ok(result);
         }
     } 

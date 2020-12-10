@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Bello.WEB.Models.Request.Board
+namespace Bello.WEB.Models.Response.Account
 {
-    public class SaveBoardReq
+    public class LoginResult
     {
-        public int BoardId { get; set; }
-        public string BoardName { get; set; }
         public string UserId { get; set; }
+        public string Message { get; set; }
+        public bool Success { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿var userId = parseInt(1);
+﻿var userid = localStorage.getItem("userId");
 var menu = menu || {};
 menu.cardAPIdUrl = "https://localhost:44320/api/card";
 menu.listAPIUrl = "https://localhost:44320/api/list";
@@ -21,6 +21,7 @@ let closeMenuStorage = document.querySelector('#close-menu-storage');
 
 
 showBtn.onclick = () => {
+    alert('hienj');
     showMenuBoard.style.display = 'block';
 }
 //menuContent
@@ -82,14 +83,14 @@ storageListBtn.onclick = () => {
 
 menu.drawCard = function () {
     $.ajax({
-        url: `${menu.cardAPIdUrl}/GetCardSaved`,
+        url: `/card/GetCardSaved`,
         method: 'GET',
         dataType: 'JSON',
-        success: function (data) {
+        success: function (response) {
             $(`#getCardSave`).empty();
             $(`#getCardSave`).append(`<ul class="list-items card__list" id="sortable__cardSave">`);
-            $.each(data, function (i, v) {
-                console.log(data);
+            $.each(response.data, function (i, v) {
+                
                 var strpro = "";
                 strisdone = "";
                 var classpro = "";
@@ -133,77 +134,78 @@ menu.drawCard = function () {
 }
 
 menu.undoCard = function (id) {
+    debugger;
     $.ajax({
-        url: `${menu.cardAPIdUrl}/changestatus/${id}/${1}`,
+        url: `/card/changestatus/${id}/${1}/${userid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
-        success: function (data) {
+        success: function (response) {
 
-            if (data.cardId > 0) {
+            if (response.data.cardId > 0) {
                 menu.drawCard();
                 list.drawList();
             } else {
-                alert(data.message);
+                alert(response.data.message);
             }
         }
     });
 }
 menu.deleteCard = function (id) {
     $.ajax({
-        url: `${menu.cardAPIdUrl}/changestatus/${id}/${3}`,
+        url: `/card/changestatus/${id}/${3}/${userid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
-        success: function (data) {
+        success: function (response) {
 
-            if (data.cardId > 0) {
+            if (response.data.cardId > 0) {
                 menu.drawCard();
             } else {
-                alert(data.message);
+                alert(response.data.message);
             }
         }
     });
 }
 menu.undoList = function (id) {
     $.ajax({
-        url: `${menu.listAPIUrl}/changestatus/${id}/${1}`,
+        url: `/list/changestatus/${id}/${1}/${userid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
-        success: function (data) {
-            if (data.listId > 0) {
+        success: function (response) {
+            if (response.data.listId > 0) {
                 list.drawList();
                 menu.drawList();
             } else {
-                alert(data.message);
+                alert(response.data.message);
             }
         }
     });
 }
 menu.deleteList = function (id) {
     $.ajax({
-        url: `${menu.listAPIUrl}/changestatus/${id}/${3}`,
+        url: `/list/changestatus/${id}/${3}/${userid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
-        success: function (data) {
-            if (data.listId > 0) {
+        success: function (response) {
+            if (response.data.listId > 0) {
                 menu.drawList();
             } else {
-                alert(data.message);
+                alert(response.data.message);
             }
         }
     });
 }
 menu.drawList = function () {
     $.ajax({
-        url: `${menu.listAPIUrl}/GetListSaved`,
+        url: `/list/GetListSaved`,
         method: 'GET',
         dataType: 'JSON',
-        success: function (data) {
+        success: function (response) {
             $(`#drapListSave`).empty();
-            $.each(data, function (i, v) {
+            $.each(response.data, function (i, v) {
                 $(`#drapListSave`).append(`<div class="return-list">
                     <span>${v.listName}</span>
                     <div>

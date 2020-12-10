@@ -1,0 +1,42 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site - Copy.css" />
+
+
+</head>
+<body>
+    <div id="navbar">
+        <div class="navbar-header">
+            <div class="logo">
+                <a asp-controller="Home" asp-action="Index"> <img style=" width: 180px !important; height: 70px !important;" src="~/images/logo.png" alt="error"></a>
+            </div>
+            <div class="sign">
+                <a asp-controller="Home" asp-action="LoginRegister">Let's Goooo! =>></a>
+
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+    <script src="~/lib/bootbox/bootbox.min.js"></script>
+
+    <script src="~/js/homejs.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+    @RenderSection("Styles", false)
+</body>
+
+</html>

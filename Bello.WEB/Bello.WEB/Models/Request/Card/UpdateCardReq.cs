@@ -11,7 +11,7 @@ namespace Bello.WEB.Models.Request.Card
         public string CardName { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
-        public int ModifiedBy { get; set; }
+        public string ModifiedBy { get; set; }
         public int Priority { get; set; }
     }
 }

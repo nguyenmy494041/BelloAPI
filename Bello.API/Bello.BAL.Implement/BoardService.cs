@@ -34,9 +34,9 @@ namespace Bello.BAL.Implement
             return await boardRepository.Gets();
         }
 
-        public async Task<SaveBoardRes> Save(SaveBoardReq request,string userid)
+        public async Task<SaveBoardRes> Save(SaveBoardReq request)
         {
-            return await boardRepository.Save(request,userid);
+            return await boardRepository.Save(request);
         }
     }
 }
