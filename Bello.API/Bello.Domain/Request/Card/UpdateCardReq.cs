@@ -9,8 +9,9 @@ namespace Bello.Domain.Request.Card
         public int CardId { get; set; }
         public string CardName { get; set; }
         public string Description { get; set; }
-        public DateTime DueDate { get; set; }      
-        public int ModifiedBy { get; set; }
+        public DateTime DueDate { get; set; }
         public int Priority { get; set; }
+        public int ModifiedBy { get; set; }
+       
     }
 }
