@@ -9,6 +9,6 @@ namespace Bello.WEB.Models.Request.Card
     {
         public string CardName { get; set; }
         public int ListId { get; set; }
-        public int CreateBy { get; set; }
+        public string CreateBy { get; set; }
     }
 }

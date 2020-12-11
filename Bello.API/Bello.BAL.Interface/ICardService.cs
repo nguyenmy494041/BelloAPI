@@ -11,7 +11,7 @@ namespace Bello.BAL.Interface
     {
         Task<IEnumerable<CardView>> Gets(int listId);
         Task<CardView> Get(int cardId);
-        Task<SaveCardRes> ChangeStatus(int cardId, int status);
+        Task<SaveCardRes> ChangeStatus(int cardId, int status, string userId);
         Task<SaveCardRes> CompleteCard(int cardId);
         Task<SaveCardRes> Create(SaveCardReq saveCardReq);
         Task<SaveCardRes> Update(UpdateCardReq updateCardReq);

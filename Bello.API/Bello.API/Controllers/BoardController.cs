@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bello.BAL.Interface;
+using Bello.DAL.Implement;
 using Bello.Domain.Request.Board;
 using Bello.Domain.Response.Board;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bello.API.Controllers
@@ -13,7 +15,9 @@ namespace Bello.API.Controllers
     [ApiController]
     public class BoardController : ControllerBase
     {
+        private readonly UserManager<ApplicationUser> userManager;
         private readonly IBoardService boardService;
+
 
         public BoardController(IBoardService boardService)
         {
@@ -45,10 +49,10 @@ namespace Bello.API.Controllers
             var result = await boardService.Save(request);
             return Ok(result);
         }
-        [HttpPost("api/board/changestatus/{boardId}/{status}")]
-        public async Task<OkObjectResult> ChangeStatus(int boardId, int status)
+        [HttpPost("api/board/changestatus/{boardId}/{status}/{userId}")]
+        public async Task<OkObjectResult> ChangeStatus(int boardId,int status, string userId )
         {
-            var result = await boardService.ChangeStatus(boardId,status);
+            var result = await boardService.ChangeStatus(boardId,status, userId);
             return Ok(result);
         }
     } 

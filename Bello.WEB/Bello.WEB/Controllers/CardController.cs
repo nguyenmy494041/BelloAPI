@@ -17,7 +17,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("card/gets/{ListId}")]
+        [Route("/card/gets/{ListId}")]
         public JsonResult Gets (int ListId)
         {
             var result = ApiHelper<List<CardView>>.HttpGetAsync($"card/gets/{ListId}");
@@ -25,7 +25,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("card/get/{id}")]
+        [Route("/card/get/{id}")]
         public JsonResult Get(int id)
         {
             var result = ApiHelper<CardView>.HttpGetAsync($"card/get/{id}");
@@ -33,15 +33,15 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("card/changestatus/{cardId}/{status}")]
-        public JsonResult ChangeStatus(int cardId, int status)
+        [Route("/card/changestatus/{cardId}/{status}/{userId}")]
+        public JsonResult ChangeStatus(int cardId, int status, string userId)
         {
-            var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/changestatus/{cardId}/{status}", "POST", new { cardId = cardId, status = status });
+            var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/changestatus/{cardId}/{status}/{userId}", "POST", new { cardId = cardId, status = status,userId = userId });
             return Json(new { data = result });
         }
 
         [HttpPost]
-        [Route("card/complete/{cardId}")]
+        [Route("/card/complete/{cardId}")]
         public JsonResult Complete(int cardId)
         {
             var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/complete/{cardId}", "POST", new { cardId = cardId});
@@ -49,7 +49,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("card/save")]
+        [Route("/card/save")]
         public JsonResult Save([FromBody] SaveCardReq saveCardReq)
         {
             var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/save", "POST", saveCardReq);
@@ -57,7 +57,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPatch]
-        [Route("card/update")]
+        [Route("/card/update")]
         public JsonResult Update([FromBody] UpdateCardReq updateCardReq)
         {
             var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/update", "PATCH", updateCardReq);
@@ -65,7 +65,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("card/drapdrop")]
+        [Route("/card/drapdrop")]
         public JsonResult Drapdrop([FromBody] DrapDropReq drapDropReq)
         {
             var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/drapdrop", "POST", drapDropReq);
@@ -73,7 +73,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPatch]
-        [Route("card/updatename")]
+        [Route("/card/updatename")]
         public JsonResult UpdateName([FromBody] UpdateName updateName)
         {
             var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/update", "PATCH", updateName);
@@ -81,7 +81,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("card/orderbyname/{listId}")]
+        [Route("/card/orderbyname/{listId}")]
         public JsonResult OrderByName(int listId)
         {
             var result = ApiHelper<List<CardView>>.HttpGetAsync($"card/orderbyname/{listId}");
@@ -89,7 +89,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("card/orderbyduedate/{listId}")]
+        [Route("/card/orderbyduedate/{listId}")]
         public JsonResult OrderByDueDate(int listId)
         {
             var result = ApiHelper<List<CardView>>.HttpGetAsync($"card/orderbydudate/{listId}");
@@ -97,7 +97,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("card/GetCardSaved")]
+        [Route("/card/GetCardSaved")]
         public JsonResult GetCardSaved()
         {
             var result = ApiHelper<List<CardView>>.HttpGetAsync($"card/GetCardSaved");

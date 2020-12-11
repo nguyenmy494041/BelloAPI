@@ -12,18 +12,16 @@ namespace Bello.DAL.Implement
 {
     public class CardRepository : BaseRepository, ICardRepository
     {
-        public async Task<SaveCardRes> ChangeStatus(int cardId, int status)
+        public async Task<SaveCardRes> ChangeStatus(int cardId, int status, string userId)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CardId", cardId);
                 parameters.Add("@Status", status);
-                parameters.Add("@UserId", 1);
+                parameters.Add("@UserId", userId);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
-                                                            sql: "sp_ChangeStatusCard" +
-                                                            "" +
-                                                            "",
+                                                            sql: "sp_ChangeStatusCard",
                                                             param: parameters,
                                                             commandType: CommandType.StoredProcedure);
 

@@ -17,9 +17,9 @@ namespace Bello.BAL.Implement
             this.CardRepository = CardRepository;
         }
 
-        public async Task<SaveCardRes> ChangeStatus(int cardId, int status)
+        public async Task<SaveCardRes> ChangeStatus(int cardId, int status, string userId)
         {
-            return await CardRepository.ChangeStatus(cardId, status);
+            return await CardRepository.ChangeStatus(cardId, status, userId);
         }
 
         public async Task<SaveCardRes> CompleteCard(int cardId)
