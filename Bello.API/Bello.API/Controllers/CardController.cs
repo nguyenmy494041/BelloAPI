@@ -47,25 +47,22 @@ namespace Bello.API.Controllers
             var result = await CardService.ChangeStatus(cardId, status,userId);
             return Ok(result);
         }
-        [HttpPost("api/card/complete/{cardId}")]
-        public async Task<OkObjectResult> Complete(int cardId)
+        [HttpPost("api/card/complete/{cardId}/{userId}")]
+        public async Task<OkObjectResult> Complete(int cardId,string userId)
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await CardService.CompleteCard(cardId,user.Id);
+            var result = await CardService.CompleteCard(cardId,userId);
             return Ok(result);
         }
         [HttpPost("api/card/save")]
         public async Task<OkObjectResult> Save(SaveCardReq saveCardReq)
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await CardService.Create(saveCardReq,user.Id);
+            var result = await CardService.Create(saveCardReq);
             return Ok(result);
         }
         [HttpPatch("api/card/update")]
         public async Task<OkObjectResult> Update(UpdateCardReq updateCardReq)
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await CardService.Update(updateCardReq,user.Id);
+            var result = await CardService.Update(updateCardReq);
             return Ok(result);
         }
         [HttpPost("api/card/drapdrop")]
@@ -77,8 +74,7 @@ namespace Bello.API.Controllers
         [HttpPatch("api/card/updatename")]
         public async Task<OkObjectResult> UpdateName(UpdateName updateName)
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await CardService.UpdateName(updateName,user.Id);
+            var result = await CardService.UpdateName(updateName);
             return Ok(result);
         }
         [HttpGet("api/card/orderbyname/{listid}")]

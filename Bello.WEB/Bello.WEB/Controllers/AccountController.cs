@@ -12,17 +12,16 @@ namespace Bello.WEB.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [Route("/account/login")]
-        public IActionResult Login([FromBody]LoginRequest request)
+        public IActionResult Login([FromBody] LoginRequest request)
         {
             var result = ApiHelper<LoginResult>.HttpPostAsync("account/login", "POST", request);
             return Json(new { data = result });
             
         }
         [HttpPost]
-        [Route("account/register")]
+        [Route("/account/register")]
         public JsonResult Register([FromBody] RegisterRequest request)
         {
             var result = ApiHelper<RegisterResult>.HttpPostAsync($"account/register", "POST", request);

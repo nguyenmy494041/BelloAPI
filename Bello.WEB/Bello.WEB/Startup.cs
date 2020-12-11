@@ -43,6 +43,7 @@ namespace Bello.WEB
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
