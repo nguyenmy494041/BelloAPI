@@ -12,7 +12,7 @@ namespace Bello.DAL.Implement
 {
     public class CardRepository : BaseRepository, ICardRepository
     {
-        public async Task<SaveCardRes> ChangeStatus(int cardId, int status)
+        public async Task<SaveCardRes> ChangeStatus(int cardId, int status,string userid)
         {
             try
             {
@@ -34,7 +34,7 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveCardRes> CompleteCard(int cardId)
+        public async Task<SaveCardRes> CompleteCard(int cardId,string userid)
         {
             try
             {
@@ -53,14 +53,14 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveCardRes> Create(SaveCardReq saveCardReq)
+        public async Task<SaveCardRes> Create(SaveCardReq saveCardReq,string userid)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CardName", saveCardReq.CardName);
                 parameters.Add("@ListId", saveCardReq.ListId);
-                parameters.Add("@CreateBy", saveCardReq.CreateBy);
+                parameters.Add("@CreateBy", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_SaveCard",
                                                             param: parameters,
@@ -183,7 +183,7 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)
+        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq,string userid)
         {
             try
              {
@@ -194,7 +194,7 @@ namespace Bello.DAL.Implement
                 parameters.Add("@Description", updateCardReq.Description );
                 parameters.Add("@DueDate", updateCardReq.DueDate );
                 parameters.Add("@Priority", updateCardReq.Priority);
-                parameters.Add("@ModifiedBy", updateCardReq.ModifiedBy );
+                parameters.Add("@ModifiedBy", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_UpdateCard",
                                                             param: parameters,
@@ -207,14 +207,14 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveCardRes> UpdateName(UpdateName updateName)
+        public async Task<SaveCardRes> UpdateName(UpdateName updateName,string userid)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CardId", updateName.CardId);
                 parameters.Add("@CardName", updateName.CardName);              
-                parameters.Add("@UserId", updateName.UserId);
+                parameters.Add("@UserId", userid);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_UpdateNameCard",
                                                             param: parameters,

@@ -17,19 +17,19 @@ namespace Bello.BAL.Implement
             this.CardRepository = CardRepository;
         }
 
-        public async Task<SaveCardRes> ChangeStatus(int cardId, int status)
+        public async Task<SaveCardRes> ChangeStatus(int cardId, int status,string userid)
         {
-            return await CardRepository.ChangeStatus(cardId, status);
+            return await CardRepository.ChangeStatus(cardId, status,userid);
         }
 
-        public async Task<SaveCardRes> CompleteCard(int cardId)
+        public async Task<SaveCardRes> CompleteCard(int cardId,string userid)
         {
-            return await CardRepository.CompleteCard(cardId);
+            return await CardRepository.CompleteCard(cardId,userid);
         }
 
-        public async Task<SaveCardRes> Create(SaveCardReq saveCardReq)
+        public async Task<SaveCardRes> Create(SaveCardReq saveCardReq,string userid)
         {
-            return await CardRepository.Create(saveCardReq);
+            return await CardRepository.Create(saveCardReq,userid);
         }
 
         public async Task<SaveCardRes> DrapDropCard(DrapDropReq drapDropReq)
@@ -63,14 +63,14 @@ namespace Bello.BAL.Implement
             return await CardRepository.OrderByName(ListId);
         }
 
-        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq)
+        public async Task<SaveCardRes> Update(UpdateCardReq updateCardReq,string userid)
         {
-            return await CardRepository.Update(updateCardReq);
+            return await CardRepository.Update(updateCardReq,userid);
         }
 
-        public async Task<SaveCardRes> UpdateName(UpdateName updateName)
+        public async Task<SaveCardRes> UpdateName(UpdateName updateName,string userid)
         {
-            return await CardRepository.UpdateName(updateName);
+            return await CardRepository.UpdateName(updateName,userid);
         }
     }
 }
