@@ -9,7 +9,7 @@ namespace Bello.BAL.Interface
 {
     public interface IBoardService
     {
-        Task<IEnumerable<BoardView>> Gets();
+        Task<IEnumerable<BoardView>> Gets(string UserId);
         Task<BoardView> Get(int boardId);
         Task<SaveBoardRes> Save(SaveBoardReq request);
         Task<SaveBoardRes> ChangeStatus(int boardId, int status,string userid);

@@ -53,12 +53,15 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<IEnumerable<BoardView>> Gets()
+        public async Task<IEnumerable<BoardView>> Gets(string UserId)
         {
             try
             {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@UserId", UserId);
                 return await SqlMapper.QueryAsync<BoardView>(cnn: connection,
                                                          sql: "sp_GetBoards",
+                                                          param: parameters,
                                                          commandType: CommandType.StoredProcedure);
             }
             catch (Exception ex)
