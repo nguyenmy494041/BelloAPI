@@ -13,6 +13,7 @@ namespace Bello.WEB.Controllers
     {
         public IActionResult Index()
         {
+           
             return View();
         }
 
@@ -32,7 +33,7 @@ namespace Bello.WEB.Controllers
             return Json(new { data = list });
         }
         [HttpPost,HttpPatch]
-        [Route("list/save")]
+        [Route("/list/save")]
         public JsonResult SaveList([FromBody] SaveListReq saveListReq)
         {
             var result = ApiHelper<SaveListRes>.HttpPostAsync($"list/save", "POST", saveListReq);
@@ -40,15 +41,15 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("list/changestatus/{listId}/{status}")]
-        public JsonResult ChangeStatus (int listId, int status)
+        [Route("/list/changestatus/{listId}/{status}/{userId}")]
+        public JsonResult ChangeStatus (int listId, int status,string userId)
         {
-            var result = ApiHelper<SaveListRes>.HttpPostAsync($"list/changestatus/{listId}/{status}", "POST", new {listId = listId, status = status});
+            var result = ApiHelper<SaveListRes>.HttpPostAsync($"list/changestatus/{listId}/{status}/{userId}", "POST", new {listId = listId, status = status,userId = userId});
             return Json(new { data = result });
         }
 
         [HttpPost]
-        [Route("list/drapdroplist/{listId}/{positionNew}")]
+        [Route("/list/drapdroplist/{listId}/{positionNew}")]
         public JsonResult Drapdrop(int listId, int positionNew)
         {
             var result = ApiHelper<SaveListRes>.HttpPostAsync($"list/drapdroplist/{listId}/{positionNew}", "POST", new {listId = listId, positionNew = positionNew});
@@ -56,7 +57,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("list/moveAllList/{listIdBefore}/{listIdAfter}")]
+        [Route("/list/moveAllList/{listIdBefore}/{listIdAfter}")]
         public JsonResult MoveAllList(int listIdBefore, int listIdAfter)
         {
             var result = ApiHelper<SaveListRes>.HttpPostAsync($"list/moveAllList/{listIdBefore}/{listIdAfter}", "POST", new { listIdBefore = listIdBefore, listIdAfter = listIdAfter });
@@ -72,7 +73,7 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("list/GetListSaved")]
+        [Route("/list/GetListSaved")]
         public JsonResult GetListSave()
         {
             var result = ApiHelper<List<ListView>>.HttpGetAsync($"list/GetListSaved");

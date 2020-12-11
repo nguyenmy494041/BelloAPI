@@ -48,9 +48,9 @@ namespace Bello.BAL.Implement
             return await listRepository.MoveAllList(listIdBefore, listIdAfter);
         }
 
-        public async Task<SaveListRes> Save(SaveListReq request,string userid)
+        public async Task<SaveListRes> Save(SaveListReq request)
         {
-            return await listRepository.Save(request,userid);
+            return await listRepository.Save(request);
         }
 
         public async Task<SaveListRes> StorageAllCard(int listId)

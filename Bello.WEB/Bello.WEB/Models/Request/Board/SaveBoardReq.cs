@@ -9,5 +9,6 @@ namespace Bello.WEB.Models.Request.Board
     {
         public int BoardId { get; set; }
         public string BoardName { get; set; }
+        public string UserId { get; set; }
     }
 }

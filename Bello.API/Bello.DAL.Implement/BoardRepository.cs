@@ -69,14 +69,14 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<SaveBoardRes> Save(SaveBoardReq request,string userid)
+        public async Task<SaveBoardRes> Save(SaveBoardReq request)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@BoardId", request.BoardId);
                 parameters.Add("@BoardName", request.BoardName);
-                parameters.Add("@UserId", userid);
+                parameters.Add("@UserId", request.UserId);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveBoardRes>(cnn: connection,
                                                             sql: "sp_SaveBoard",
                                                             param: parameters,

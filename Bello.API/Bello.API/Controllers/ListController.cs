@@ -44,17 +44,15 @@ namespace Bello.API.Controllers
         [HttpPost, HttpPatch]
         [Route("api/list/save")]
         public async Task<OkObjectResult> SaveCourse(SaveListReq request)
-        {
-            var user = await userManager.GetUserAsync(User);
-            var result = await ListService.Save(request,user.Id);
+        {  
+            var result = await ListService.Save(request);
             return Ok(result);
         }
 
-        [HttpPost("api/list/changestatus/{listId}/{status}")]
-        public async Task<OkObjectResult> ChangeStatus(int listId, int status)
+        [HttpPost("api/list/changestatus/{listId}/{status}/{userId}")]
+        public async Task<OkObjectResult> ChangeStatus(int listId, int status,string userId)
         {
-            var user = await userManager.GetUserAsync(User);
-            var result = await ListService.ChangeStatus(listId,status,user.Id);
+            var result = await ListService.ChangeStatus(listId,status, userId);
             return Ok(result);
         }
         [HttpPost("api/list/drapdroplist/{listId}/{positionNew}")]

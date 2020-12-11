@@ -1,17 +1,13 @@
 ﻿var list = list || {};
 var card = card || {};
-var userId = parseInt(1);
-list.apiUrl = "https://localhost:44320/api/list";
-card.apiUrl = "https://localhost:44320/api/card";
-
+list.apiUrl = "https://localhost:44344/";
+card.apiUrl = "https://localhost:44344/";
+var board = localStorage.getItem("boardId");
+var userid = localStorage.getItem("userId");
+var boardname = localStorage.getItem("boardName");
 var count = 0;
 var arrayListName = [];
 
-
-// function addList(saveCard, closeCard) {
-//     saveCard.style.display = "inline-block";
-//     closeCard.style.display = "none";
-// }
 
 function addList(saveList, closeList) {
     saveList.style.display = "inline-block";
@@ -19,9 +15,10 @@ function addList(saveList, closeList) {
 }
 // có chỉnh
 list.drawList = function () {
+    debugger;
     count = 0;
     $.ajax({
-        url: `list/gets/1`,
+        url: `gets/${board}`,
         method: 'GET',
         dataType: 'JSON',
         success: function (response) {
@@ -105,11 +102,16 @@ list.drawList = function () {
                 </div>
             `);
                 card.dragg();
+
                 list.move(`move_list_btn__${v.listId}`, `move_list_box__${v.listId}`, `confirm_btn__${v.listId}`, `not_confirm_btn__${v.listId}`, `move_list_box_input__${v.listId}`);
+
                 list.showMenu(`menu-list__${v.listId}`, `menu_${v.listId}`, `close_menu__${v.listId}`);
+
                 list.updateList(`title__${v.listId}`, `edit-list-title__${v.listId}`);
                
-                list.drawCard(`card/gets`, v.listId);
+
+                list.drawCard(`/card/gets`, v.listId);
+
                 list.moveallcard(`move_alllist_btn__${v.listId}`, `move_alllist_box__${v.listId}`, `allconfirm_btn__${v.listId}`, `not_allconfirm_btn__${v.listId}`, `move_alllist_box_input__${v.listId}`);
             })
 
@@ -139,20 +141,20 @@ list.drawList = function () {
             });
             saveListBtn.addEventListener("click", function () {
                 let listname = listInputBox.value;
-                list.saveList(listname, 1);
+                list.saveList(listname, localStorage.getItem("boardId"));
             });
         }
     });
 }
 list.StorageList = function (id) {
     $.ajax({
-        url: `list/changestatus/${id}/${parseInt(2)}`,
+        url: `/list/changestatus/${id}/${parseInt(2)}/${userid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
         success: function (response) {
             if (response.data.listId > 0) {
-                list.drawList();
+                list.drawList(board);
             } else {
                 alert(response.data.message);
             }
@@ -161,13 +163,13 @@ list.StorageList = function (id) {
 }
 list.deleteList = function (id) {
     $.ajax({
-        url: `list/changestatus/${id}/${parseInt(3)}`,
+        url: `/list/changestatus/${id}/${parseInt(3)}/${userid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
         success: function (response) {
             if (response.data.listId > 0) {
-                list.drawList();
+                list.drawList(board);
             } else {
                 alert(response.data.message);
             }
@@ -176,13 +178,13 @@ list.deleteList = function (id) {
 }
 list.StorageAllCard = function (id) {
     $.ajax({
-        url: `list/StorageAllCard/${id}`,
+        url: `/list/StorageAllCard/${id}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
         success: function (response) {
             if (response.data.listId > 0) {
-                list.drawCard(`card/gets`, id);
+                list.drawCard(`/card/gets`, id);
 
             } else {
                 alert(response.data.message);
@@ -272,10 +274,10 @@ list.updateList = function (id_h3, id_input) {
             let list_id = card.cuttingString(`${id_h3}`);
             saveList.listId = parseInt(list_id);
             saveList.listName = string;
-            saveList.boardId = parseInt(1);
+            saveList.boardId = board;
 
             $.ajax({
-                url: `list/save`,
+                url: `/list/save`,
                 method: 'PATCH',
                 dataType: 'JSON',
                 contentType: 'application/json',
@@ -323,18 +325,23 @@ list.dragg = function (listid) {
 }
 
 card.openModal = function (cardid) {
+    debugger;
     $.ajax({
-        url: `card/get/${cardid}`,
+        url: `/card/get/${cardid}`,
         method: 'GET',
         dataType: 'JSON',
         contentType: 'application/json',
         success: function (response) {
             console.log(response.data);
-            $('#cardIdmodal').val(response.cardId);
-            $('#cardname').val(response.cardName);
-            $('#description').val(response.description);
-            $('#duedatelocal').val(response.dueDate);
-            $('#priority111').val(response.priority);
+            let ngay = (response.data.dueDate == "0001-01-01T00:00:00" ? null : response.data.dueDate );
+            //if (response.data.dueDate = "0001-01-01T00:00:00") {
+            //    response.data.dueDate = null
+            //};
+            $('#cardIdmodal').val(response.data.cardId);
+            $('#cardname').val(response.data.cardName);
+            $('#description').val(response.data.description);
+            $('#duedatelocal').val(ngay);
+            $('#priority111').val(response.data.priority);
         }
     });
     $('#mymodal').modal("show");
@@ -345,7 +352,7 @@ card.dropdrap = function (cardId, listIdAfter, positionNew) {
     saveObj.listIdAfter = parseInt(listIdAfter);
     saveObj.positionNew = parseInt(positionNew);
     $.ajax({
-        url: `card/drapdrop`,
+        url: `/card/drapdrop`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
@@ -357,25 +364,26 @@ card.cuttingString = function (string) {
     return parseInt(array[array.length - 1]);
 }
 card.updateCard = function () {
+    debugger;
     let dateinput = document.getElementById("duedatelocal").value;
-    let date = (dateinput = new Date("1/1/0001 12:00:00 AM")) ? new Date("1/1/1800 12:00:00 AM") : dateinput;
+   
     let updateCardbox = {};
     updateCardbox.cardId = parseInt(document.getElementById("cardIdmodal").value);
     updateCardbox.cardName = document.getElementById(`cardname`).value;
     updateCardbox.description = document.getElementById("description").value;
-    updateCardbox.dueDate = date;
+    updateCardbox.dueDate = document.getElementById("duedatelocal").value;;
     updateCardbox.priority = parseInt(document.getElementById("priority111").value);
-    updateCardbox.modifiedBy = parseInt(1);
+    updateCardbox.modifiedBy = userid;
     $.ajax({
 
-        url: `card/update`,
+        url: `/card/update`,
         method: 'PATCH',
         dataType: 'JSON',
         contentType: 'application/json',
         data: JSON.stringify(updateCardbox),
         success: function (response) {
             if (response.data.cardId > 0) {
-                list.drawCard(`card/gets`, updateCardbox.cardId);
+                list.drawCard(`${list.apiUrl}card/gets`, updateCardbox.cardId);
             } else {
                 alert(response.data.message);
             }
@@ -385,7 +393,7 @@ card.updateCard = function () {
 card.completeCard = function () {
     let cardid = parseInt(document.getElementById("cardIdmodal").value);
     $.ajax({
-        url: `card/complete/${cardid}`,
+        url: `/card/complete/${cardid}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
@@ -396,20 +404,23 @@ card.completeCard = function () {
 
 
 list.saveList = function (stringname, boardId) {
+    debugger;
+
     var saveObj = {};
     saveObj.listId = parseInt(0);
     saveObj.listName = stringname;
     saveObj.boardId = parseInt(boardId);
+    saveObj.userId = userid;
     if (stringname.length > 0 && stringname.length < 51) {
         $.ajax({
-            url: `list/save`,
+            url: `/list/save`,
             method: 'POST',
             dataType: 'JSON',
             contentType: 'application/json',
             data: JSON.stringify(saveObj),
             success: function (response) {
                 if (response.data.listId > 0) {
-                    list.drawList();
+                    list.drawList(boardId);
                 } else {
                     alert(response.data.message);
                 }
@@ -432,23 +443,25 @@ list.createCard = (add_card_id, save_card_box_id, input_card_id, save_card_btn_i
         save_card_box.style.display = 'block';
         add_card.style.display = 'none';
     }
+  
     save_card_btn.onclick = () => {
+        debugger;
         let id = card.cuttingString(`${add_card_id}`);
         let cardName = input_card.value;
         let saveCard = {};
         saveCard.listId = parseInt(id);
         saveCard.cardName = cardName;
-        saveCard.CreateBy = parseInt(1);
+        saveCard.createBy = userid;
         if (cardName.length > 0) {
             $.ajax({
-                url: `card/save`,
+                url: `/card/save`,
                 method: 'POST',
                 dataType: 'JSON',
                 contentType: 'application/json',
                 data: JSON.stringify(saveCard),
                 success: (response) => {
                     if (response.data.cardId > 0) {
-                        list.drawCard(`card/gets`, id);
+                        list.drawCard(`/card/gets`, id);
                     } else {
                         alert(response.data.message);
                     }
@@ -488,7 +501,7 @@ card.dragg = function () {
 
 list.dropdrap = function (listId, positionNew) {
     $.ajax({
-        url: `list/drapdroplist/${listId}/${positionNew}`,
+        url: `/list/drapdroplist/${listId}/${positionNew}`,
         method: 'POST',
         dataType: 'JSON',
         contentType: 'application/json',
@@ -523,16 +536,16 @@ list.updateCard = (boxCardShow_id, editCardBtn_id, editCardBox_id, inputCard_id,
             let saveCard = {};
             saveCard.cardId = parseInt(cardId);
             saveCard.cardName = cardname;
-            saveCard.modifiedBy = userId;
+            saveCard.modifiedBy = userid;
             $.ajax({
-                url: `card/updatename`,
+                url: `/card/updatename`,
                 method: 'PATCH',
                 dataType: 'JSON',
                 contentType: 'application/json',
                 data: JSON.stringify(saveCard),
                 success: function (response) {
                     if (response.data.cardId > 0) {
-                        list.drawCard(`card/gets`, listId);
+                        list.drawCard(`/card/gets`, listId);
                     } else {
                         alert(response.data.message);
                     }
@@ -577,12 +590,12 @@ list.move = function (move_list_btn__id, move_list_box__id, confirm_btn__id, not
 
     confirmBtn.onclick = () => {
         $.ajax({
-            url: `list/drapdroplist/${card.cuttingString(move_list_btn__id)}/${number.value}`,
+            url: `/list/drapdroplist/${card.cuttingString(move_list_btn__id)}/${number.value}`,
             method: 'POST',
             dataType: 'JSON',
             contentType: 'application/json',
             success: function (response) {
-                list.drawList();
+                list.drawList(board);
             }
         });
     }
@@ -596,12 +609,12 @@ list.move = function (move_list_btn__id, move_list_box__id, confirm_btn__id, not
 
 
 list.orderbyname = function (listid) {
-    list.drawCard(`card/orderbyname`, listid);
+    list.drawCard(`/card/orderbyname`, listid);
     let menuShow = document.getElementById(`menu_${listid}`);
     menuShow.style.display = 'none';
 }
 list.orderbyduedate = function (listid) {
-    list.drawCard(`card/orderbyduedate`, listid);
+    list.drawCard(`/card/orderbyduedate`, listid);
     let menuShow = document.getElementById(`menu_${listid}`);
     menuShow.style.display = 'none';
 }
@@ -621,18 +634,18 @@ list.moveallcard = function (move_list_btn__id, move_list_box__id, confirm_btn__
         box.style.display = 'block';
         // elementMovie.style.display = 'none';        
     }
-
+    debugger;
     confirmBtn.onclick = () => {
         //alert(number.value);
         //alert(card.cuttingString(move_list_btn__id));
         $.ajax({
-            url: `list/moveAllList/${card.cuttingString(move_list_btn__id)}/${number.value}`,
+            url: `/list/moveAllList/${card.cuttingString(move_list_btn__id)}/${number.value}`,
             method: 'POST',
             dataType: 'JSON',
             contentType: 'application/json',
             success: function (response) {
                 if (response.data.listId > 0) {
-                    list.drawList();
+                    list.drawList(board);
                 } else {
                     alert(response.data.message);
                 }
@@ -650,8 +663,17 @@ list.moveallcard = function (move_list_btn__id, move_list_box__id, confirm_btn__
 }
 
 list.init = function () {
-    list.drawList();
+    $('#board_name').empty();
+    $('#board_name').append(`<h2>${boardname}</h2>`);
+
+    list.drawList(board);
 }
 $(document).ready(function () {
     list.init();
 });
+
+
+
+
+
+

@@ -125,7 +125,7 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveListRes> Save(SaveListReq request,string userid)
+        public async Task<SaveListRes> Save(SaveListReq request)
         {
             try
             {
@@ -133,7 +133,7 @@ namespace Bello.DAL.Implement
                 parameters.Add("@ListId", request.ListId);
                 parameters.Add("@ListName", request.ListName);
                 parameters.Add("@BoardId", request.BoardId);
-                parameters.Add("@UserId", userid);
+                parameters.Add("@UserId", request.UserId);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveListRes>(cnn: connection,
                                                             sql: "sp_SaveList",
                                                             param: parameters,

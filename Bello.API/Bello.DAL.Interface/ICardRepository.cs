@@ -12,10 +12,10 @@ namespace Bello.DAL.Interface
     {
         Task<IEnumerable<CardView>> Gets(int ListId);
         Task<CardView> Get(int cardId);
-        Task<SaveCardRes> ChangeStatus(int cardId, int status,string userid);
-        Task<SaveCardRes> CompleteCard(int cardId,string userid);
-        Task<SaveCardRes> Create(SaveCardReq saveCardReq,string userid);
-        Task<SaveCardRes> Update(UpdateCardReq updateCardReq,string userid);
+        Task<SaveCardRes> ChangeStatus(int cardId, int status, string userId);
+        Task<SaveCardRes> CompleteCard(int cardId);
+        Task<SaveCardRes> Create(SaveCardReq saveCardReq);
+        Task<SaveCardRes> Update(UpdateCardReq updateCardReq);
         Task<SaveCardRes> DrapDropCard(DrapDropReq drapDropReq);
         Task<SaveCardRes> UpdateName(UpdateName updateName,string userid);
         Task<IEnumerable<CardView>> OrderByName(int ListId);

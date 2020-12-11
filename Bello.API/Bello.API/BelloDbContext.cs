@@ -9,7 +9,7 @@ namespace Bello.API
 {
     public class BelloDbContext : IdentityDbContext<ApplicationUser>
     {
-        public BelloDbContext(DbContextOptions<BelloDbContext> options):base(options)
+        public BelloDbContext(DbContextOptions<BelloDbContext> options) : base(options)
         {
 
         }

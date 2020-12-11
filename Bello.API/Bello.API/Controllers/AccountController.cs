@@ -36,21 +36,28 @@ namespace Bello.API.Controllers
             this.webHostEnvironment = webHostEnvironment;
             this.accountService = accountService;
         }
-        [AllowAnonymous]
+        
         [HttpPost]
         [Route("/api/account/login")]
         public async Task<IActionResult> Login(LoginRequest request)
         {
             var result = await accountService.Login(request);
-            return  Ok(result);
+            return Ok(result);
         }
-        [AllowAnonymous]
+        
         [HttpPost]
         [Route("/api/account/register")]
         public async Task<IActionResult> Register(RegisterRequest request)
         {
             var result = await accountService.Register(request);
             return Ok(result);
+        }
+        [HttpGet]
+        [Route("/api/account/getuser")]
+        public async Task<IActionResult> GetUser()
+        {
+            var user = await userManager.GetUserAsync(User);
+            return Ok(user);
         }
     }
 }

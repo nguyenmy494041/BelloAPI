@@ -9,5 +9,6 @@ namespace Bello.Domain.Request.List
         public int ListId { get; set; }
         public string ListName { get; set; }
         public int BoardId { get; set; }
+        public string UserId { get; set; }
     }
 }

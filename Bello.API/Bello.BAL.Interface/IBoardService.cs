@@ -11,7 +11,7 @@ namespace Bello.BAL.Interface
     {
         Task<IEnumerable<BoardView>> Gets();
         Task<BoardView> Get(int boardId);
-        Task<SaveBoardRes> Save(SaveBoardReq request, string userid);
+        Task<SaveBoardRes> Save(SaveBoardReq request);
         Task<SaveBoardRes> ChangeStatus(int boardId, int status,string userid);
     }
 }

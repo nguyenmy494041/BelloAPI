@@ -8,6 +8,7 @@ namespace Bello.Domain.Request.Card
     {
         public int CardId { get; set; }
         public string CardName { get; set; }
+        public string UserId { get; set; }
         
     }
 }

@@ -23,7 +23,7 @@ namespace Bello.WEB.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult LoginRegister()
         {
             return View();
         }
@@ -33,5 +33,6 @@ namespace Bello.WEB.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

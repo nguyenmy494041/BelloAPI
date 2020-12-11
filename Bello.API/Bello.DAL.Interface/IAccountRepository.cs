@@ -11,5 +11,6 @@ namespace Bello.DAL.Interface
     {
         Task<LoginResult> Login(LoginRequest request);
         Task<RegisterResult> Register(RegisterRequest request);
+      
     }
 }

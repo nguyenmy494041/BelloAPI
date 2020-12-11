@@ -41,10 +41,10 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("board/changestatus/{boardId}/{status}")]
-        public JsonResult ChangeStatus(int boardId, int status)
+        [Route("board/changestatus/{boardId}/{status}/{userId}")]
+        public JsonResult ChangeStatus(int boardId, int status,string userId)
         {
-            var result = ApiHelper<SaveBoardRes>.HttpPostAsync($"board/changestatus/{boardId}/{status}", "POST", new { boardId = boardId, status = status });
+            var result = ApiHelper<SaveBoardRes>.HttpPostAsync($"board/changestatus/{boardId}/{status}/{userId}", "POST", new { boardId = boardId, status = status, userId = userId });
             return Json(new { data = result });
         }
     }
