@@ -24,10 +24,10 @@ namespace Bello.API.Controllers
             this.boardService = boardService;
         }
 
-        [HttpGet("api/board/gets")]
-        public async Task<OkObjectResult> GetsBoard()
+        [HttpGet("api/board/gets/{UserId}")]
+        public async Task<OkObjectResult> GetsBoard(string UserId)
         {
-            var boards = await boardService.Gets();
+            var boards = await boardService.Gets(UserId);
             return Ok(boards);
         }
         [HttpGet("api/board/get/{id}")]
