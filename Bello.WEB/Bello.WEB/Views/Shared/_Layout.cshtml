@@ -21,17 +21,12 @@
 
         <div class="boards-menu">
 
-            <button class="boards-btn btn"><i class="fab fa-trello boards-btn-icon"></i>Boards</button>
-
-            <div class="board-search">
-                <input type="search" class="board-search-input" aria-label="Board Search">
-                <i class="fas fa-search search-icon" aria-hidden="true"></i>
-            </div>
+            <a class="boards-btn btn" asp-controller="Board" asp-action="Index"><i class="fab fa-trello"></i>&nbsp; Boards</a>
 
         </div>
 
         <div class="logo">
-            <img src="~/images/logo.PNG" alt="" style="width:150px;height:80px" />
+            <a asp-controller="Board" asp-action="Index"> <img src="~/images/logo-small.PNG" alt="" style="width:150px;height:80px" /></a>
         </div>
 
 
@@ -65,16 +60,8 @@
                 <h2>C0520G1</h2>
             </button>
 
-            <button class="star-btn btn" aria-label="Star Board">
-                <i class="far fa-star" aria-hidden="true"></i>
-            </button>
+            <button class="personal-btn btn" id="nhomcanhan"> Nhóm cá nhân</button>
 
-            <button class="personal-btn btn"> Nhóm cá nhân</button>
-
-            <button class="private-btn btn">
-                <i class="fas fa-briefcase private-btn-icon" aria-hidden="true"></i>Riêng
-                tư
-            </button>
 
         </div>
 
@@ -82,8 +69,7 @@
             <i class="fas fa-ellipsis-h menu-btn-icon" aria-hidden="true"></i>Show
             Menu
         </button>
-        <!-- End of masthead -->
-        <!-- Board info bar -->
+        
     </section>
         <div>
             <main role="main" class="pb-3">

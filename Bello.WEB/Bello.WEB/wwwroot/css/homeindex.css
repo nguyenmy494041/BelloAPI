@@ -81,3 +81,17 @@ html{
         max-width: 100%;
         height: auto;
     }
+
+@media screen and (max-width: 992px) {
+    .navbar-content {
+        height: 100%;
+    }
+
+    .content-writing {
+        margin: 20px 0;
+    }
+
+    .content-img {
+        margin-bottom: 40px;
+    }
+}

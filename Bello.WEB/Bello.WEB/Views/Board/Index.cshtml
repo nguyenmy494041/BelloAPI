@@ -1,8 +1,16 @@
 ﻿@{
 }
- @section Styles{
+@section Styles{
     <link href="~/css/board.css" rel="stylesheet" />
- }
+    <style>
+        #board_name  {
+            display: none;
+        }
+        #nhomcanhan {
+            display: none;
+        }
+    </style>
+}
 <section class="home-board">
     <div class="board-left">
         <div>
@@ -12,14 +20,14 @@
                 của nhóm thì thành viên chỉ cần nhìn qua là nắm được toàn bộ và công việc của mình
             </p>
         </div>
-        <img src="./product-owner.png" alt="error">
+        <img src="~/images/product-owner.png" alt="error">
     </div>
     <div class="board-right">
         <div class="board-right-header">
             <span><i class="fas fa-user"></i></span>
             <h3>Bảng cá nhân</h3>
         </div>
-        <div class="board-right-table" >
+        <div class="board-right-table">
             <ul id="AllBoard">
             </ul>
         </div>
@@ -27,5 +35,6 @@
 </section>
 @section Scripts{
     <script src="~/js/board.js" asp-append-version="true"></script>
- }
+}
+
 

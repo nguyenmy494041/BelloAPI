@@ -9,7 +9,5 @@ namespace Bello.WEB.Ultileties
     {
         public static string apiUrl = @"https://localhost:44320/api";
 
-
-
     }
 }

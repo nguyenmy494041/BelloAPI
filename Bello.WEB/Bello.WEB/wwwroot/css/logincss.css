@@ -53,14 +53,19 @@ form {
     grid-row: 1 / 2;
 }
 
-    form.sign-up-form {
-        opacity: 0;
-        z-index: 1;
-    }
+form.sign-up-form {
+    opacity: 0;
+    z-index: 1;
+}
 
-    form.sign-in-form {
-        z-index: 2;
-    }
+form.sign-in-form {
+    z-index: 2;
+}
+form.sign-in-form > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .title {
     font-size: 2.2rem;
@@ -81,28 +86,32 @@ form {
     position: relative;
 }
 
-    .input-field i {
-        text-align: center;
-        line-height: 55px;
-        color: #acacac;
-        transition: 0.5s;
-        font-size: 1.1rem;
-    }
+.input-field i {
+    text-align: center;
+    line-height: 55px;
+    color: #acacac;
+    transition: 0.5s;
+    font-size: 1.1rem;
+}
 
-    .input-field input {
-        background: none;
-        outline: none;
-        border: none;
-        line-height: 1;
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: #333;
-    }
+.input-field input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 1;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+}
+.input-field > svg{
+    margin-top: 20px;
+    margin-left: 5px
+}
 
-        .input-field input::placeholder {
-            color: #aaa;
-            font-weight: 500;
-        }
+.input-field input::placeholder {
+    color: #aaa;
+    font-weight: 500;
+}
 
 .social-text {
     padding: 0.7rem 0;
@@ -129,10 +138,10 @@ form {
     transition: 0.3s;
 }
 
-    .social-icon:hover {
-        color: #4481eb;
-        border-color: #4481eb;
-    }
+.social-icon:hover {
+    color: #4481eb;
+    border-color: #4481eb;
+}
 
 .btn {
     width: 150px;
@@ -149,9 +158,9 @@ form {
     transition: 0.5s;
 }
 
-    .btn:hover {
-        background-color: #4d84e2;
-    }
+.btn:hover {
+    background-color: #4d84e2;
+}
 
 .panels-container {
     position: absolute;
@@ -272,11 +281,14 @@ form {
 .container.sign-up-mode .right-panel {
     pointer-events: all;
 }
+.form-login {
+    min-height: 100% !important;
+}
 
 @media (max-width: 870px) {
     .container {
         min-height: 800px;
-        height: 100vh;
+        height: 90vh;
     }
 
     .signin-signup {
@@ -394,13 +406,13 @@ form {
         padding: 1.5rem;
     }
 
-        .container:before {
-            bottom: 72%;
-            left: 50%;
-        }
+    .container:before {
+        bottom: 72%;
+        left: 50%;
+    }
 
-        .container.sign-up-mode:before {
-            bottom: 28%;
-            left: 50%;
-        }
+    .container.sign-up-mode:before {
+        bottom: 28%;
+        left: 50%;
+    }
 }
