@@ -34,7 +34,7 @@ namespace Bello.DAL.Implement
                     UserId = string.Empty
                 };
 
-                var siginResult = await signInManager.PasswordSignInAsync(request.Email, request.Password, false, false);
+                var siginResult = await signInManager.PasswordSignInAsync(request.Email, request.Password,true,false);
 
                 if (siginResult.Succeeded)
                 {

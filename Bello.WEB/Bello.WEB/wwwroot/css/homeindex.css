@@ -84,7 +84,7 @@ html{
 
 @media screen and (max-width: 992px) {
     .navbar-content {
-        height: 100%;
+        height: calc(100vh + 100px);
     }
 
     .content-writing {
@@ -93,5 +93,12 @@ html{
 
     .content-img {
         margin-bottom: 40px;
+    }
+    .content-writing div > h1{
+        font-size: 2.2rem;
+
+    }
+    .content-writing div > p{
+        font-size: 1.2rem;
     }
 }
