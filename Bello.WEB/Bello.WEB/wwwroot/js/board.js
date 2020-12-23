@@ -1,9 +1,10 @@
-﻿var board = board || {};
+﻿var userid = localStorage.getItem("userId");
+var board = board || {};
 board.apiUrl = "https://localhost:44344/";
 var userid = localStorage.getItem("userId");
 board.drawBoards = function () {
     $.ajax({
-        url: `${board.apiUrl}board/gets`,
+        url: `${board.apiUrl}board/gets/${userid}`,
         method: 'GET',
         dataType: 'JSON',
         success: function (response) {

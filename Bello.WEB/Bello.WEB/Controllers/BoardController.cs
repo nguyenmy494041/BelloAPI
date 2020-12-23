@@ -17,10 +17,10 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("board/gets")]
-        public JsonResult Gets()
+        [Route("board/gets/{userId}")]
+        public JsonResult Gets(string userId)
         {
-            var result = ApiHelper<List<BoardView>>.HttpGetAsync($"board/gets");
+            var result = ApiHelper<List<BoardView>>.HttpGetAsync($"board/gets/{userId}");
             return Json(new { data = result });
         }
 

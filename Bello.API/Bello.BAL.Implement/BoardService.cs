@@ -29,9 +29,9 @@ namespace Bello.BAL.Implement
             return await boardRepository.Get(boardId);
         }
 
-        public async Task<IEnumerable<BoardView>> Gets()
+        public async Task<IEnumerable<BoardView>> Gets(string UserId)
         {
-            return await boardRepository.Gets();
+            return await boardRepository.Gets(UserId);
         }
 
         public async Task<SaveBoardRes> Save(SaveBoardReq request)

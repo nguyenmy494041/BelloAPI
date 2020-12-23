@@ -67,10 +67,8 @@ namespace Bello.DAL.Implement
             {
 
                 Email = request.Email,
-                UserName = request.Email,
-                PhoneNumber = request.PhoneNumber,
-                FullName = request.FullName,
-                Avatar = request.Avatar
+                UserName = request.Email,                
+                FullName = request.FullName               
             };
             
 
