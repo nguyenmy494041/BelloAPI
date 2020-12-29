@@ -22,9 +22,9 @@ namespace Bello.BAL.Implement
             return await CardRepository.ChangeStatus(cardId, status, userId);
         }
 
-        public async Task<SaveCardRes> CompleteCard(int cardId)
+        public async Task<SaveCardRes> CompleteCard(int cardId, string userId)
         {
-            return await CardRepository.CompleteCard(cardId);
+            return await CardRepository.CompleteCard(cardId, userId);
         }
 
         public async Task<SaveCardRes> Create(SaveCardReq saveCardReq)

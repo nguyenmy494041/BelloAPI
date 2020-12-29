@@ -44,10 +44,10 @@ namespace Bello.API.Controllers
             var result = await CardService.ChangeStatus(cardId, status,userId);
             return Ok(result);
         }
-        [HttpPost("api/card/complete/{cardId}")]
-        public async Task<OkObjectResult> Complete(int cardId)
+        [HttpPost("api/card/complete/{cardId}/{userId}")]
+        public async Task<OkObjectResult> Complete(int cardId, string userId)
         {   
-            var result = await CardService.CompleteCard(cardId);
+            var result = await CardService.CompleteCard(cardId, userId);
             return Ok(result);
         }
         [HttpPost("api/card/save")]

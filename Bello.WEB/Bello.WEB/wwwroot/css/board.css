@@ -22,23 +22,23 @@ body {
     width: 40%;
 }
 
-.board-left > div {
-    display: flex;
-    padding: 20px;
-}
+    .board-left > div {
+        display: flex;
+        padding: 20px;
+    }
 
-.board-left div > span {
-    margin-right: 4px;
-}
+    .board-left div > span {
+        margin-right: 4px;
+    }
 
-.board-left div > p {
-    font-size: 15px;
-}
+    .board-left div > p {
+        font-size: 15px;
+    }
 
-.board-left > img {
-    width: 100%;
-    height: auto;
-}
+    .board-left > img {
+        width: 100%;
+        height: auto;
+    }
 
 .board-right {
     width: 60%;
@@ -50,111 +50,126 @@ body {
     align-items: center;
 }
 
-.board-right-header > span {
-    margin-right: 10px;
-}
+    .board-right-header > span {
+        margin-right: 10px;
+    }
 
-.board-right-header > h3 {
-    margin: 0;
-}
+    .board-right-header > h3 {
+        margin: 0;
+    }
 
 .board-right-table {
     width: 100%;
     display: flex;
 }
 
-.board-right-table ul {
-    width: 100%;
-    flex-wrap: wrap;
-    display: flex;
-    list-style:none;
-}
+    .board-right-table ul {
+        width: 100%;
+        flex-wrap: wrap;
+        display: flex;
+        list-style: none;
+    }
 
-.board-right-table ul li {
-    width: 23%;
-    height: 100px;
-    border-radius: 5px;
-    margin: 5px 10px 5px 0;
-}
+        .board-right-table ul li {
+            width: 23%;
+            height: 100px;
+            border-radius: 5px;
+            margin: 5px 10px 5px 0;
+        }
 
-.board-right-table ul li > div {
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    text-decoration: none;
-    color: white;
-    position: relative;
-}
+            .board-right-table ul li > div {
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+                text-decoration: none;
+                color: white;
+                position: relative;
+            }
 
-.board-right-table ul li div > .board-name {
-    font-weight: 600;
-    position: absolute;
-    top: 5px;
-    left: 15px;
-}
-.board-right-table ul .add-table div > .add-board {
-    text-decoration: none;
-    color: #525151;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(9,30,66,.04);
-}
-.board-right-table ul .add-table > .form-board {
-    display: none;
-    width: 100%;
-    height: 100%;
-}
+            .board-right-table ul li div > .board-name {
+                font-weight: 600;
+                position: absolute;
+                top: 5px;
+                left: 15px;
+            }
+            .board-right-table ul li div > p{
+                position: absolute;
+                bottom: -10px;
+                right:5px;
+                color: #d9d5d5;
+                font-size: 14px;
+                z-index:10;
+            }
 
-.board-right-table ul .add-table > a:hover {
-    background-color: rgba(9,30,66,.08);
-}
-.board-right-table ul .add-table div > textarea{
-    border: 1px solid #a5f8fb;
-    border-radius: 5px;
-    resize: none;
-    padding: 3px 0 2px 5px;
-}
-.board-right-table ul .add-table div div{
-    display: flex;
-}
-.board-right-table ul .add-table div div > a {
-    font-size: 1.3rem;
-    border: none;
-    background-color: #5aac44;
-    color: #fff;
-    padding: 5px 10px;
-    outline: none;
-    margin-right: 3px;
-    border-radius: 0.3rem;
-}
-.board-right-table ul .add-table div div > a:hover {
-    background-color: #42932c;
-    text-decoration: none;
-}
-.board-right-table ul .add-table div div > span {
-    color: #090909;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2px;
-    margin-left: 2px;
-    width: 27px;
-    height: 27px;
-    border-radius: 100%;
-    background-color: rgba(9,30,66,.08);
-}
+            .board-right-table ul .add-table div > .add-board {
+                text-decoration: none;
+                color: #525151;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(9,30,66,.04);
+            }
 
-.board-right-table ul .add-table div > textarea:focus {
-    border: 1px solid #06ecf5;
-}
+        .board-right-table ul .add-table > .form-board {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
 
+        .board-right-table ul .add-table > a:hover {
+            background-color: rgba(9,30,66,.08);
+        }
+
+        .board-right-table ul .add-table div > textarea {
+            border: 1px solid #A5F8FB;
+            border-radius: 5px;
+            resize: none;
+            padding: 3px 0 2px 5px;
+        }
+
+        .board-right-table ul .add-table div div {
+            display: flex;
+        }
+
+            .board-right-table ul .add-table div div > a {
+                font-size: 1.3rem;
+                border: none;
+                background-color: #5AAC44;
+                color: #fff;
+                padding: 5px 10px;
+                outline: none;
+                margin-right: 3px;
+                border-radius: 0.3rem;
+            }
+
+                .board-right-table ul .add-table div div > a:hover {
+                    background-color: #42932C;
+                    text-decoration: none;
+                }
+
+            .board-right-table ul .add-table div div > span {
+                color: #090909;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 2px;
+                margin-left: 2px;
+                width: 27px;
+                height: 27px;
+                border-radius: 100%;
+                background-color: rgba(9,30,66,.08);
+                cursor:pointer;
+            }
+
+        .board-right-table ul .add-table div > textarea:focus {
+            border: 1px solid #06ECF5;
+        }
 
 @media screen and (max-width: 960px) {
     .board-right-table ul li {
-    width: 31%;
+        width: 31%;
     }
 }
 

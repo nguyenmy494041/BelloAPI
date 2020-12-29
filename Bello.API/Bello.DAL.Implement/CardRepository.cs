@@ -32,13 +32,13 @@ namespace Bello.DAL.Implement
             }
         }
 
-        public async Task<SaveCardRes> CompleteCard(int cardId)
+        public async Task<SaveCardRes> CompleteCard(int cardId, string userId)
         {
             try
             {
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@CardId", cardId);
-                parameters.Add("@UserId", 1);
+                parameters.Add("@UserId", userId);
                 return await SqlMapper.QueryFirstOrDefaultAsync<SaveCardRes>(cnn: connection,
                                                             sql: "sp_CompleteCard",
                                                             param: parameters,

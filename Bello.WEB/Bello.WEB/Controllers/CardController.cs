@@ -41,10 +41,10 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpPost]
-        [Route("/card/complete/{cardId}")]
-        public JsonResult Complete(int cardId)
+        [Route("/card/complete/{cardId}/{userId}")]
+        public JsonResult Complete(int cardId, string userId)
         {
-            var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/complete/{cardId}", "POST", new { cardId = cardId});
+            var result = ApiHelper<SaveCardRes>.HttpPostAsync($"card/complete/{cardId}/{userId}", "POST", new { cardId = cardId});
             return Json(new { data = result });
         }
 
