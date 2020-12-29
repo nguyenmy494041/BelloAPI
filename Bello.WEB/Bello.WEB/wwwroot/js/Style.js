@@ -3,7 +3,7 @@ var card = card || {};
 list.apiUrl = "https://localhost:44344/";
 card.apiUrl = "https://localhost:44344/";
 var board = localStorage.getItem("boardId");
-var userid = localStorage.getItem("userId");
+0
 var boardname = localStorage.getItem("boardName");
 var count = 0;
 var arrayListName = [];
@@ -15,7 +15,6 @@ function addList(saveList, closeList) {
 }
 // có chỉnh
 list.drawList = function () {
-    debugger;
     count = 0;
     $.ajax({
         url: `gets/${board}`,
@@ -195,7 +194,6 @@ list.StorageAllCard = function (id) {
     });
 }
 list.drawCard = function (urlapi, listid) {
-    debugger;
     $.ajax({
         url: `${urlapi}/${listid}`,
         method: 'GET',
@@ -325,7 +323,6 @@ list.dragg = function (listid) {
 }
 
 card.openModal = function (cardid) {
-    debugger;
     $.ajax({
         url: `/card/get/${cardid}`,
         method: 'GET',
@@ -364,7 +361,6 @@ card.cuttingString = function (string) {
     return parseInt(array[array.length - 1]);
 }
 card.updateCard = function () {
-    debugger;
     let dateinput = document.getElementById("duedatelocal").value;
    
     let updateCardbox = {};
@@ -404,7 +400,6 @@ card.completeCard = function () {
 
 
 list.saveList = function (stringname, boardId) {
-    debugger;
 
     var saveObj = {};
     saveObj.listId = parseInt(0);
@@ -445,7 +440,6 @@ list.createCard = (add_card_id, save_card_box_id, input_card_id, save_card_btn_i
     }
   
     save_card_btn.onclick = () => {
-        debugger;
         let id = card.cuttingString(`${add_card_id}`);
         let cardName = input_card.value;
         let saveCard = {};
@@ -634,7 +628,6 @@ list.moveallcard = function (move_list_btn__id, move_list_box__id, confirm_btn__
         box.style.display = 'block';
         // elementMovie.style.display = 'none';        
     }
-    debugger;
     confirmBtn.onclick = () => {
         //alert(number.value);
         //alert(card.cuttingString(move_list_btn__id));
