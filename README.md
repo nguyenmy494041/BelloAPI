@@ -29,4 +29,8 @@ Ajax, JQuery.
 
 ![pj1](https://user-images.githubusercontent.com/66100506/103354367-f4c96800-4add-11eb-8482-da81b4cb4cd7.png)
 
+![pj2](https://user-images.githubusercontent.com/66100506/103354553-715c4680-4ade-11eb-8499-5abfcc3f558e.png)
+
+![pj3](https://user-images.githubusercontent.com/66100506/103354555-728d7380-4ade-11eb-849e-c6aa82e6f039.png)
+
 This README was generated with ❤️ by Hieu, My and Tri
