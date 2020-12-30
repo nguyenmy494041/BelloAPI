@@ -27,4 +27,6 @@ Ajax, JQuery.
 
 📦Github: github.com/lehuyhieu1099
 
+![pj1](https://user-images.githubusercontent.com/66100506/103354367-f4c96800-4add-11eb-8482-da81b4cb4cd7.png)
+
 This README was generated with ❤️ by Hieu, My and Tri
