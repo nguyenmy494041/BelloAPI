@@ -19,7 +19,7 @@ HTML, CSS, Javascript, C#
 Ajax, JQuery.
 
 ⌨ Công nghệ sử dụng: NET.Core 3.1
-⭐️ Người đóng góp, giúp đỡ trong quá trình thực hiện dự án:
+
 
 👨 Nếu có ý kiến đóng góp cho dự án, vui lòng gửi về địa chỉ hòm thư :
 
