@@ -1,0 +1,348 @@
+﻿
+    <section id="show-menu-board">
+        <div id="board-menu-content" class="board-menu">
+            <div>
+                <h4>Menu</h4>
+                <span id="close-menu-content"><i class="fas fa-times"></i></span>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-table"></i></span>
+                        <div>
+                            <span>Về bảng này</span>
+                            <p>Thêm mô tả vào bảng của bạn</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span>
+                            <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80"
+                                 alt="error">
+                        </span>
+                        <div>
+                            <span>Thay đổi hình nền</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-search"></i></span>
+                        <div>
+                            <span>Tìm kiếm thẻ</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-dragon"></i></span>
+                        <div>
+                            <span>Các nhãn dán</span>
+                        </div>
+                    </a>
+                </li>
+                <li id="add-board-menu-header-btn">
+                    <a href="#">
+                        <span><i class="fas fa-ellipsis-h"></i></span>
+                        <div>
+                            <span>Thêm</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-address-card"></i></span>
+                        <div>
+                            <span>Butler</span>
+                            <p>Tự động hóa các thẻ và hơn thế nữa...</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <div id="board-menu-header" class="board-menu">
+            <div>
+                <a href="#" id="back-menu-content"><i class="fas fa-chevron-left"></i></a>
+                <h4>Mở rộng</h4>
+                <span id="close-menu-header"><i class="fas fa-times"></i></span>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-cog"></i></span>
+                        <div>
+                            <span>Cài đặt</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-tags"></i></span>
+                        <div>
+                            <span>Nhãn</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-boxes"></i></span>
+                        <div>
+                            <span>Bộ sưu tập</span>
+                        </div>
+                    </a>
+                </li>
+                <li id="storage-btn">
+                    <a href="#">
+                        <span><i class="fas fa-save"></i></span>
+                        <div>
+                            <span onclick="menu.drawCard()">Thẻ đã lưu trữ</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-envelope"></i></span>
+                        <div>
+                            <span>Cài đặt thêm thẻ qua email</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-eye"></i></span>
+                        <div>
+                            <span>Theo dõi</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="far fa-clone"></i></span>
+                        <div>
+                            <span>Sao chép bảng</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-share-alt"></i></span>
+                        <div>
+                            <span>In và xuất</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <hr>
+            <ul>
+                <li>
+                    <a href="#">
+                        <span><i class="fas fa-door-closed"></i></span>
+                        <div>
+                            <span>Rời khỏi bảng...</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="board-menu-storage" class="board-menu">
+            <div>
+                <a href="#" id="back-menu-header"><i class="fas fa-chevron-left"></i></a>
+                <h4>Lưu trữ</h4>
+                <span id="close-menu-storage"><i class="fas fa-times"></i></span>
+            </div>
+            <hr>
+            <div id="card-storage">
+                <div>
+                    <input type="text" placeholder="Tìm kiếm lưu trữ...">
+                    <a href="#" id="list-storage-btn">Danh sách đã lưu trữ</a>
+                </div>
+                <div id="getCardSave">
+                    <ul class="card-storage-all">
+                        <li class="card__item" id="card__item__id">
+                            <span class="card__tag card__tag--browser">Browser</span>
+                            <h6 class="card__title">Lightbox loading issue on Safari</h6>
+                            <ol class="card__actions">
+                                <li class="card__actions--wrapper">
+                                </li>
+                                <ol class="card__avatars">
+                                    <li class="card__avatars--item">
+                                        <!-- Photo by Philip Martin on Unsplash -->
+                                        <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=664&q=80"
+                                             alt="Man standing near balcony" class="avatar__image">
+                                    </li>
+                                </ol>
+
+                            </ol>
+                        </li>
+                        <div class="return-card">
+                            <a href="" id="to-return__id">Hoàn trả vào bảng</a>
+                            <p>-</p>
+                            <a href="" id="delete__id">Xóa</a>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div id="list-storage">
+                <div>
+                    <input type="text" placeholder="Tìm kiếm lưu trữ...">
+                    <a href="#" id="card-storage-btn">Thẻ đã lưu trữ</a>
+                </div>
+                <div id="drapListSave">
+
+                </div>
+                <hr>
+            </div>
+        </div>
+    </section>
+
+
+
+</section>
+<!-- End of board info bar -->
+<!-- Lists container -->
+<section class="lists-container" id="Alllist">
+
+
+</section>
+<section>
+    <div class="modal fade modal-lg" id="mymodal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLongTitle" aria-hidden="true" name="mymodal">
+        <div class="modal-dialog modal-lg" role="document" style="margin:0 auto;">
+            <input hidden id="cardIdmodal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="content-header">
+                        <div class="content-header-icon">
+                            <span><i class="fas fa-address-card"></i></span>
+                        </div>
+                        <div class="content-header-board">
+                            <div >
+                                <input style="font-size:14px !important" class="form-control" id="cardname"  />
+                            </div>
+                            <span>Trong danh sách <i class="fas fa-eye"></i></span>
+                        </div>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times-circle"></i>
+                    </button>
+                </div>
+                <div class="modal-body" style="float: left;">
+                    <div class="content-body-member">
+                        <div>
+                            <h5>Thành Viên</h5>
+                        </div>
+                        <div class="member-img">
+
+                            <a href="#">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <div style="margin-top: 5px !important;">
+                                <h5>Ngày đến hạn</h5>
+                            </div>
+                            <div class="duedate">
+                                <input class="form-control" id="duedatelocal" type="datetime-local"
+                                       style="font-size: 14px;">
+                            </div>
+                        </div>
+                        <div>
+                            <div style="margin-top: 5px !important;">
+                                <h5>Độ ưu tiên</h5>
+                            </div>
+                            <div class="priority">
+                                <select class="form-control" id="priority111" style="font-size: 14px;">
+                                    <option value="3">Thấp</option>
+                                    <option value="2">Trung bình</option>
+                                    <option value="1">Cao</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="content-body-description">
+                        <div class="content-icon">
+                            <span><i class="fas fa-align-left"></i></span>
+                        </div>
+                        <div class="content-description">
+                            <div>
+                                <h5>Mô Tả</h5>
+                            </div>
+                            <div class="content-description-form">
+                                <form action="">
+                                    <div class="form-group">
+                                        <textarea style="font-size: 14px;" class="form-control" rows="3"
+                                                  id="description" placeholder="Thêm mô tả chi tiết...."></textarea>
+                                    </div>
+
+                                    <div>
+                                        <button onclick="card.updateCard()" style="margin-right: 20px;">Lưu</button>
+                                        <button onclick="card.completeCard()">Hoàn thành</button>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-body-work">
+                        <div class="content-icon">
+                            <span><i class="fas fa-comment-dots"></i></span>
+                        </div>
+                        <div class="content-work">
+                            <div>
+                                <div>
+                                    <h5>Hành Động</h5>
+                                </div>
+                                <div class="detail">
+                                    <button id="show-detail" onclick="ShowDetail()">Hiện chi tiết</button>
+                                    <button id="hide-detail" onclick="HideDetail()">Ẩn chi tiết</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-body-work">
+                        <div class="content-img">
+
+                        </div>
+                        <div class="content-work-form">
+                            <form action="">
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="2"
+                                              placeholder="Viết bình luận"></textarea>
+                                    <button type="submit" id="save-comment">Lưu</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+@section Scripts{ 
+    <script src="~/js/Style.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function () {
+            //list.drawList(localStorage.getItem("boardId"));
+            localStorage.getItem("userId");
+            localStorage.getItem("boardName");
+        });
+    </script>
+}
+

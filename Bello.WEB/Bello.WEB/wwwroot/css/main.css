@@ -1,0 +1,261 @@
+﻿#show-menu-board {
+    position: absolute;
+    float: right;
+    width: 340px;
+    right: 0;
+    top: 60px !important;
+    z-index: 100;
+    font-size: 14px;
+    background-color: #dce4e9;
+    color: #201a1a;
+    padding: 0 10px;
+    overflow: hidden;
+    display: none;
+}
+
+.board-menu {
+    width: 100%;
+}
+
+    .board-menu > div {
+        text-align: center;
+        font-size: 2rem;
+        display: inline-flex;
+        width: 100%;
+        padding: 10px 3px 0 10px;
+    }
+
+    .board-menu div > a {
+        color: #172b4d;
+        text-decoration: none;
+    }
+
+    .board-menu div > h4 {
+        width: 90%;
+        font-size: 1.8rem;
+        margin: 0 !important;
+        padding-top: 5px;
+        color: #172b4d;
+        font-weight: 550;
+    }
+
+    .board-menu div > span {
+        width: 10%;
+    }
+
+    .board-menu ul {
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+        .board-menu ul li {
+            width: 100%;
+            padding: 0.8rem 0 0.8rem 10px;
+            border-radius: 5px;
+        }
+
+            .board-menu ul li:hover {
+                background-color: rgb(202, 216, 218);
+            }
+
+            .board-menu ul li a {
+                width: 100%;
+                display: inline-flex;
+                color: #172b4d;
+                text-decoration: none;
+            }
+
+                .board-menu ul li a > span {
+                    width: 10%;
+                }
+
+                .board-menu ul li a span > i {
+                    font-size: 16px;
+                }
+
+                .board-menu ul li a span > img {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 2px;
+                }
+
+                .board-menu ul li a > div {
+                    width: 90%;
+                }
+
+                .board-menu ul li a div > span {
+                    font-weight: 550;
+                }
+
+                .board-menu ul li a div > p {
+                    font-size: 13px;
+                    color: #5e6c84;
+                    margin: 0;
+                }
+
+#board-menu-header {
+    display: none;
+}
+
+
+#board-menu-storage {
+    display: none;
+}
+
+#card-storage {
+    display: block;
+    max-height: 400px;
+    overflow-y: auto !important;
+}
+
+    #card-storage > div {
+        display: inline-flex;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    #card-storage div > input {
+        width: 50%;
+        border-radius: 5px;
+        border: 1px solid #cee0eb;
+        padding: 3px 5px;
+    }
+
+        #card-storage div > input:focus {
+            border: 1px solid #0b9df1;
+        }
+
+    #card-storage div > a {
+        width: 45%;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        background-color: rgb(208, 239, 245);
+    }
+
+
+#list-storage {
+    display: none;
+}
+
+    #list-storage > div {
+        display: inline-flex;
+        font-size: 13px;
+        width: 100%;
+    }
+
+    #list-storage div > input {
+        width: 60%;
+        border-radius: 5px;
+        border: 1px solid #cee0eb;
+        padding: 3px 5px;
+    }
+
+        #list-storage div > input:focus {
+            border: 1px solid #0b9df1;
+        }
+
+    #list-storage div > a {
+        width: 35%;
+        margin-left: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        background-color: rgb(208, 239, 245);
+    }
+
+        #list-storage div > a:hover, #card-storage div > a:hover {
+            background-color: #badff5;
+        }
+
+.card-storage-all {
+    padding: 0 15px !important;
+}
+
+    .card-storage-all > li {
+        display: block;
+        text-align: left;
+    }
+
+.return-card {
+    display: inline-flex !important;
+    width: 80%;
+    margin: auto;
+    
+}
+
+    .return-card > a {
+        width: auto !important;
+        margin: 0 !important;
+        padding: 5px 10px;
+        background-color: #dce4e9 !important;
+        text-decoration: underline !important;
+        color: #5e6c84;
+    }
+
+    .return-card a:hover {
+        color: #006aa7;
+    }
+
+    .return-card p {
+        margin-top: 4px;
+        margin-bottom: 0 !important;
+    }
+
+
+.return-list {
+    display: inline-flex !important;
+    justify-content: space-between !important;
+    margin-top: 10px;
+    width: 100% !important;
+}
+
+    .return-list > span {
+        display: flex;
+        width: 50% !important;
+        text-align: left !important;
+        align-items: center !important;
+        font-weight: 600;
+    }
+
+    .return-list > div {
+        padding: 5px 0 !important;
+        display: inline-flex !important;
+    }
+
+    .return-list div a:nth-child(1) {
+        width: 70% !important;
+        margin: 0 !important;
+        font-size: 12px;
+    }
+
+    .return-list div a:nth-child(2) {
+        width: 30% !important;
+        font-size: 12px;
+    }
+
+    .return-list div a > i {
+        margin-right: 3px !important;
+    }
+
+/* thêm mới */
+.avatar__image123 {
+    border-radius: 50%;
+    width: 15%;
+    height: 100%;
+    object-fit: cover;
+    float: right;
+}
+
+
+#getCardSave ul li {
+    display: block;
+    width: 100%;
+}
+
+#drapListSave {
+    display: block !important;
+}

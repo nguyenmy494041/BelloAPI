@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Bello.WEB</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+  
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/main.css" />
+    <link rel="stylesheet" href="~/css/modal.css" />
+    <link rel="stylesheet" href="~/css/card.css" />
+</head>
+<body>
+
+
+    <header class="masthead">
+
+        <div class="boards-menu">
+
+            <button class="boards-btn btn"><i class="fab fa-trello boards-btn-icon"></i>Boards</button>
+
+            <div class="board-search">
+                <input type="search" class="board-search-input" aria-label="Board Search">
+                <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            </div>
+
+        </div>
+
+        <div class="logo">
+            <img src="~/images/logo.PNG" alt="" style="width:150px;height:80px" />
+        </div>
+
+
+        <div class="user-settings">
+
+            <button class="user-settings-btn btn" aria-label="Create">
+                <i class="fas fa-plus" aria-hidden="true"> </i>
+            </button>
+
+            <button class="user-settings-btn btn" aria-label="Information">
+                <i class="fas fa-info-circle" aria-hidden="true"> </i>
+            </button>
+
+            <button class="user-settings-btn btn" aria-label="Notifications">
+                <i class="fas fa-bell" aria-hidden="true"></i>
+            </button>
+
+            <button class="user-settings-btn btn" aria-label="User Settings">
+                <i class="fas fa-user-circle" aria-hidden="true"></i>
+            </button>
+
+
+        </div>
+
+    </header>
+    <!--<section class="board-info-bar">
+
+        <div class="board-controls">
+
+            <button class="board-title btn" id="board_name">
+                <h2>C0520G1</h2>
+            </button>
+
+            <button class="star-btn btn" aria-label="Star Board">
+                <i class="far fa-star" aria-hidden="true"></i>
+            </button>
+
+            <button class="personal-btn btn"> Nhóm cá nhân</button>
+
+            <button class="private-btn btn">
+                <i class="fas fa-briefcase private-btn-icon" aria-hidden="true"></i>Riêng
+                tư
+            </button>
+
+        </div>
+
+        <button class="menu-btn btn" id="menu-btn">
+            <i class="fas fa-ellipsis-h menu-btn-icon" aria-hidden="true"></i>Show
+            Menu
+        </button>-->
+        <!-- End of masthead -->
+        <!-- Board info bar -->
+    <!--</section>-->
+        <div>
+            <main role="main" class="pb-3">
+                <br />
+                @RenderBody()
+            </main>
+        </div>
+
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="~/lib/bootbox/bootbox.min.js"></script>
+        <script src="~/lib/font-awesome/js/all.js"></script>
+        @*<script src="~/js/site.js" asp-append-version="true"></script>*@
+        @RenderSection("Scripts", required: false)
+        @RenderSection("Styles", false)
+</body>
+</html>
+

@@ -1,0 +1,213 @@
+﻿body {
+    font-size: 14px;
+}
+
+.modal-open .modal {
+    margin-left: 25%;
+}
+
+.content-header, .content-body-description, .content-body-work {
+    width: 100%;
+    display: inline-flex;
+    float: left;
+}
+
+.content-body-work {
+    margin-bottom: 10px;
+}
+
+.content-header .content-header-icon {
+    width: 7%;
+    margin-left: 2%;
+}
+
+.content-header .content-header-board {
+    width: 90%;
+}
+
+.content-header .content-header-icon span > i {
+    font-size: 20px;
+}
+
+.content-header .content-header-board h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.content-header .content-header-board span {
+    font-size: 12px;
+    color: rgb(92, 91, 91);
+}
+
+.modal-header > button {
+    outline: none;
+}
+
+.modal-header button > i {
+    font-size: 17px;
+}
+
+.modal-body .content-body-member {
+    width: 90%;
+    margin-left: 9%;
+    margin-bottom: 10px;
+    line-height: 30px;
+}
+
+    .modal-body .content-body-member div > h5 {
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        color: rgb(92, 91, 91);
+        
+    }
+
+    .modal-body .content-body-member .member-img {
+        display: inline-flex;
+        align-items: center;
+    }
+
+        .modal-body .content-body-member .member-img > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            margin-right: 5px;
+        }
+
+        .modal-body .content-body-member .member-img a {
+            color: #2b2a2a;
+            height: 30px;
+            width: 30px;
+            background-color: #c4c0c0;
+            border-radius: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .modal-body .content-body-member .member-img a:hover {
+                text-decoration: none;
+                background-color: #b1afaf;
+                transition: all 0.4s ease-in;
+            }
+
+.content-icon {
+    width: 7%;
+    margin-left: 2%;
+}
+
+.content-img {
+    width: 7%;
+    margin-left: 2%;
+}
+
+.content-icon span > i {
+    font-size: 20px;
+}
+
+.content-img > img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+
+.content-description, .content-work, .content-work-form {
+    width: 90%;
+}
+
+    .content-description > div, .content-work > div {
+        margin-bottom: 15px;
+    }
+
+        .content-work > div:first-child {
+            display: inline-flex;
+            justify-content: space-between !important;
+            width: 100%;
+        }
+
+    .content-description div > h5, .content-work div > h5 {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .content-description .content-description-form {
+        width: 100%;
+    }
+
+    .content-work .content-work-form {
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .content-description .content-description-form textarea, .content-body-work .content-work-form textarea {
+        resize: none;
+        border-radius: 5px;
+        width: 85%;
+        padding: 5px 10px;
+        height: auto;
+    }
+
+        .content-description .content-description-form textarea:focus, .content-body-work .content-work-form textarea:focus {
+            font-size: 14px;
+        }
+
+        .content-body-work .content-work-form textarea:focus {
+            outline: none;
+            border: none;
+            height: 60px;
+            transition: all 0.5s ease-in;
+        }
+
+.content-body-work .content-work-form textarea {
+    margin-bottom: 5px;
+}
+
+.content-body-work .content-work-form button {
+    display: none;
+}
+
+.content-body-work .content-work-form textarea:focus ~ button {
+    display: block;
+}
+
+.content-body-work .content-work-comment > div p {
+    margin-bottom: 0 !important;
+}
+
+.content-body-work .content-work-comment > div .user {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.content-body-work .content-work-comment > span {
+    font-size: 12px;
+    color: #666565;
+}
+
+.content-body-work .content-work .detail > button {
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.5s ease-out;
+}
+
+    .content-body-work .content-work .detail > button:hover {
+        background-color: #cac7c7;
+    }
+
+.content-description .content-description-form form button, .content-body-work .content-work-form button {
+    background-color: #0ce768;
+    outline: none;
+    border: none;
+    padding: 3px 10px;
+    color: #fff;
+    border-radius: 3px;
+}
+
+    .content-description .content-description-form form button:hover, .content-body-work .content-work-form button:hover {
+        background-color: #3ef88b;
+    }
