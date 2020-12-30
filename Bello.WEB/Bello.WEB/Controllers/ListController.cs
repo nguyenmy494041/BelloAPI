@@ -73,10 +73,10 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("/list/GetListSaved")]
-        public JsonResult GetListSave()
+        [Route("/list/GetListSaved/{BoardId}")]
+        public JsonResult GetListSave(int BoardId)
         {
-            var result = ApiHelper<List<ListView>>.HttpGetAsync($"list/GetListSaved");
+            var result = ApiHelper<List<ListView>>.HttpGetAsync($"list/GetListSaved/{BoardId}");
             return Json(new { data = result });
         }
 

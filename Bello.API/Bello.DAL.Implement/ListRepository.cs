@@ -71,13 +71,15 @@ namespace Bello.DAL.Implement
 
         }
 
-        public async Task<IEnumerable<ListView>> GetListSave()
+        public async Task<IEnumerable<ListView>> GetListSave(int BoardId)
         {
             try
             {
-               
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@BoardId", BoardId);
                 return await SqlMapper.QueryAsync<ListView>(cnn: connection,
-                                                         sql: "sp_GetListSave",                                                        
+                                                         sql: "sp_GetListSave",
+                                                         param: parameters,
                                                          commandType: CommandType.StoredProcedure);
             }
             catch (Exception ex)

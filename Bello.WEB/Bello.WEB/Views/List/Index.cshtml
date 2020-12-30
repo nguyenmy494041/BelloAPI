@@ -1,4 +1,8 @@
-﻿
+﻿<style>
+    .error {
+        color: red;
+    }
+</style>
 <section id="show-menu-board">
     <div id="board-menu-content" class="board-menu">
         <div>
@@ -207,7 +211,7 @@
 
 
 
-</section>
+
 <!-- End of board info bar -->
 <!-- Lists container -->
 <section class="lists-container" id="Alllist">
@@ -226,9 +230,13 @@
                             <span><i class="fas fa-address-card"></i></span>
                         </div>
                         <div class="content-header-board">
-                            <div>
-                                <input style="font-size:14px !important" class="form-control" id="cardname" />
-                            </div>
+                            <form id="namecard">
+                                <div>
+                                    <input style="font-size:14px !important" class="form-control" id="cardname" data-rule-required="true"
+                                    data-msg-required="Vui lòng nhập tên thẻ" data-rule-maxlength="50"
+                                           data-msg-maxlength="Vui lòng nhập tên thẻ không quá 50 kí tự"/>
+                                </div>
+                            </form>
                             <span>Trong danh sách <i class="fas fa-eye"></i></span>
                         </div>
                     </div>
@@ -238,15 +246,7 @@
                 </div>
                 <div class="modal-body" style="float: left;">
                     <div class="content-body-member">
-                        <div>
-                            <h5>Thành Viên</h5>
-                        </div>
-                        <div class="member-img">
-
-                            <a href="#">
-                                <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
+                   
                         <div>
                             <div style="margin-top: 5px !important;">
                                 <h5>Ngày đến hạn</h5>
@@ -281,7 +281,7 @@
                                 <h5>Mô Tả</h5>
                             </div>
                             <div class="content-description-form">
-                                <form id="zxcvb">
+                               
                                     <div class="form-group">
                                         <textarea style="font-size: 14px;" class="form-control" rows="3"
                                                   id="description" placeholder="Thêm mô tả chi tiết....">
@@ -289,45 +289,15 @@
                                     </div>
 
                                     <div>
-                                        <button type="submit" onclick="card.updateCard()" style="margin-right: 20px;">Lưu</button>
-                                        <button onclick="card.completeCard()" style="margin-right: 20px;">Hoàn thành</button>
-                                        <button onclick="card.luutruCard()">Lưu trữ thẻ</button>
+                                        <button class="btn-success rounded" onclick="card.updateCard()" style="margin-right: 20px;">Lưu</button>
+                                        <button class="btn-success rounded" onclick="card.completeCard()" style="margin-right: 20px;">Hoàn thành</button>
+                                        <button class="btn-success rounded" onclick="card.luutruCard()">Lưu trữ thẻ</button>
                                     </div>
-                                </form>
+                               
                             </div>
                         </div>
                     </div>
-                    <div class="content-body-work">
-                        <div class="content-icon">
-                            <span><i class="fas fa-comment-dots"></i></span>
-                        </div>
-                        <div class="content-work">
-                            <div>
-                                <div>
-                                    <h5>Hành Động</h5>
-                                </div>
-                                <div class="detail">
-                                    <button id="show-detail" onclick="ShowDetail()">Hiện chi tiết</button>
-                                    <button id="hide-detail" onclick="HideDetail()">Ẩn chi tiết</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="content-body-work">
-                        <div class="content-img">
-
-                        </div>
-                        <div class="content-work-form">
-                            <form action="">
-                                <div class="form-group">
-                                    <textarea class="form-control" rows="2"
-                                              placeholder="Viết bình luận"></textarea>
-                                    <button type="submit" id="save-comment">Lưu</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -343,7 +313,7 @@
     <script src="~/js/main.js" asp-append-version="true"></script>
     <script>
         $(document).ready(function () {
-            //list.drawList(localStorage.getItem("boardId"));
+ 
             localStorage.getItem("userId");
             localStorage.getItem("boardName");
         });

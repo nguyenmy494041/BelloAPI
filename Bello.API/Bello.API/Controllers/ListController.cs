@@ -73,10 +73,10 @@ namespace Bello.API.Controllers
             var result = await ListService.StorageAllCard(listId);
             return Ok(result);
         }
-        [HttpGet("api/list/GetListSaved")]
-        public async Task<OkObjectResult> GetListSave()
+        [HttpGet("api/list/GetListSaved/{BoardId}")]
+        public async Task<OkObjectResult> GetListSave(int BoardId)
         {
-            var Lists = await ListService.GetListSave();
+            var Lists = await ListService.GetListSave(BoardId);
             return Ok(Lists);
         }
     }

@@ -97,10 +97,10 @@ namespace Bello.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("/card/GetCardSaved")]
-        public JsonResult GetCardSaved()
+        [Route("/card/GetCardSaved/{BoardId}")]
+        public JsonResult GetCardSaved(int BoardId)
         {
-            var result = ApiHelper<List<CardView>>.HttpGetAsync($"card/GetCardSaved");
+            var result = ApiHelper<List<CardView>>.HttpGetAsync($"card/GetCardSaved/{BoardId}");
             return Json(new { data = result });
         }
 

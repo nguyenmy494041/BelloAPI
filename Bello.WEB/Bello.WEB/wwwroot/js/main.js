@@ -1,4 +1,5 @@
 ﻿var userid = localStorage.getItem("userId");
+var idboard = localStorage.getItem("boardId");
 var menu = menu || {};
 menu.cardAPIdUrl = "https://localhost:44320/api/card";
 menu.listAPIUrl = "https://localhost:44320/api/list";
@@ -21,7 +22,7 @@ let closeMenuStorage = document.querySelector('#close-menu-storage');
 
 
 showBtn.onclick = () => {
-    alert('hienj');
+   
     showMenuBoard.style.display = 'block';
 }
 //menuContent
@@ -29,7 +30,7 @@ closeMenuContent.onclick = () => {
     showMenuBoard.style.display = 'none';
 }
 seeMoreMenuHeader.onclick = () => {
-
+    
     boardMenuHeader.style.display = 'block';
     boardMenuContent.style.display = 'none';
 }
@@ -49,6 +50,8 @@ closeMenuHeader.onclick = () => {
 
 //Storage
 storageBtn.onclick = () => {
+
+    menu.drawCard();
     boardMenuStorage.style.display = 'block';
     boardMenuHeader.style.display = 'none';
 }
@@ -83,7 +86,7 @@ storageListBtn.onclick = () => {
 
 menu.drawCard = function () {
     $.ajax({
-        url: `/card/GetCardSaved`,
+        url: `/card/GetCardSaved/${idboard}`,
         method: 'GET',
         dataType: 'JSON',
         success: function (response) {
@@ -200,7 +203,7 @@ menu.deleteList = function (id) {
 }
 menu.drawList = function () {
     $.ajax({
-        url: `/list/GetListSaved`,
+        url: `/list/GetListSaved/${idboard}`,
         method: 'GET',
         dataType: 'JSON',
         success: function (response) {

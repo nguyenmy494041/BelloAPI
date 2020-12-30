@@ -43,9 +43,9 @@ namespace Bello.BAL.Implement
             return await CardRepository.Get(cardId);
         }
 
-        public async Task<IEnumerable<CardView>> GetCardSaved()
+        public async Task<IEnumerable<CardView>> GetCardSaved(int BoardId)
         {
-            return await CardRepository.GetCardSaved();
+            return await CardRepository.GetCardSaved(BoardId);
         }
 
         public async Task<IEnumerable<CardView>> Gets(int ListId)

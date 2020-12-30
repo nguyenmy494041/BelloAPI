@@ -19,6 +19,6 @@ namespace Bello.BAL.Interface
         Task<SaveCardRes> UpdateName(UpdateName updateName);
         Task<IEnumerable<CardView>> OrderByName(int ListId);
         Task<IEnumerable<CardView>> OrderByDueDate(int ListId);
-        Task<IEnumerable<CardView>> GetCardSaved();
+        Task<IEnumerable<CardView>> GetCardSaved(int BoardId);
     }
 }

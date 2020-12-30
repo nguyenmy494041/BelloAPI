@@ -1,10 +1,9 @@
 ﻿var list = list || {};
 var card = card || {};
 var user_id = localStorage.getItem("userId");
+var board = localStorage.getItem("boardId");
 list.apiUrl = "https://localhost:44344/";
 card.apiUrl = "https://localhost:44344/";
-var board = localStorage.getItem("boardId");
-0
 var boardname = localStorage.getItem("boardName");
 var count = 0;
 var arrayListName = [];
@@ -396,35 +395,38 @@ card.luutruCard = function () {
 
 }
 card.updateCard = function () {
-    debugger;
 
+    let cardidinput = parseInt(document.getElementById("cardIdmodal").value);
+    if ($('#namecard').valid()) {
+        let descritioninput = document.getElementById("description").value;
+        let dateinput = document.getElementById("duedatelocal").value;
+        let list_id = parseInt(document.getElementById("listIdmodal").value);
+        let updateCardbox = {};
+        updateCardbox.cardId = cardidinput;
+        updateCardbox.cardName = document.getElementById(`cardname`).value;
+        updateCardbox.description = descritioninput == "" ? null : descritioninput;
+        updateCardbox.dueDate = dateinput == "" ? null : dateinput;
+        updateCardbox.priority = parseInt(document.getElementById("priority111").value);
+        updateCardbox.modifiedBy = userid;
+        $.ajax({
 
-    let dateinput = document.getElementById("duedatelocal").value;
-    let list_id = parseInt(document.getElementById("listIdmodal").value); 
-    let updateCardbox = {};
-
-    updateCardbox.cardId = parseInt(document.getElementById("cardIdmodal").value);
-
-    updateCardbox.cardName = document.getElementById(`cardname`).value;
-    updateCardbox.description = document.getElementById("description").value;
-    updateCardbox.dueDate = document.getElementById("duedatelocal").value;
-    updateCardbox.priority = parseInt(document.getElementById("priority111").value);
-    updateCardbox.modifiedBy = userid;
-    $.ajax({
-
-        url: `/card/update`,
-        method: 'PATCH',
-        dataType: 'JSON',
-        contentType: 'application/json',
-        data: JSON.stringify(updateCardbox),
-        success: function (response) {
-            if (response.data.cardId > 0) {
-                list.drawCard(`${list.apiUrl}card/gets`, list_id);
-            } else {
-                alert(response.data.message);
+            url: `/card/update`,
+            method: 'PATCH',
+            dataType: 'JSON',
+            contentType: 'application/json',
+            data: JSON.stringify(updateCardbox),
+            success: function (response) {
+                if (response.data.cardId > 0) {
+                    list.drawCard(`${list.apiUrl}card/gets`, list_id);
+                    alert(response.data.message);
+                    $('#mymodal').modal("hide");
+                } else {
+                    alert(response.data.message);
+                }
             }
-        }
-    });
+        });
+    } 
+    
 }
 
 
@@ -441,6 +443,7 @@ card.completeCard = function () {
         success: function (response) {
             if (response.data.cardId > 0) {
                 list.drawCard(`${list.apiUrl}card/gets`, list_id);
+                $('#mymodal').modal("hide");
             } else {
                 alert(response.data.message);
             }
